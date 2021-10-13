@@ -30,11 +30,25 @@
     ------------------------------------------------------ */
 
 	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 	body {
 		font-family:  'Roboto', sans-serif;
 		font-size: 90%;
 		color: #333;
 		background-color: rgb(207, 207, 207);}
+
+		@media screen and (max-width: 640px) /* Mobile */ {
+			body {
+			  background: rgb(127, 32, 146);
+			  font-family:  'Roboto', sans-serif;
+			  font-size: 90%;
+			  color: rgb(127, 32, 146);
+			  page {
+				color: black;
+			  }
+			
+			}
+		  }
 
 		/* ------------------------------------------------------
             1.1.1. Text (paragraph and headers)
@@ -67,36 +81,35 @@
 
 	#page {
 		max-width: 940px;
-		min-width: 720px;
+		/*min-width: 720px;*/
 		margin: 10px auto 10px auto;
 		border: 4px  #000;
 		background-color: #ffffff;
 		vertical-align: baseline;}
 
 	.center-mid-1{
-		width: 940px;
+		width: 100%;
 		background-color: #ffffff ;
 		padding-bottom: 15px;
 		padding-top: 5px;
 		}
 
 	.center-mid-2, .center-mid-3{
-		width: 920px;
+		width: 95%;
 		margin-left: 10px;
 		background-color: rgb(228, 228, 228);
 		padding-bottom: 15px;
-		margin: none;
-		padding: none;
+		margin: auto;
+		padding: auto;
 		}
 
 
 	/* center of the Schedule page*/
 	.center-2{
-		width: 900px;
+		width: 95%;
 		margin: auto;
-		padding: 20px;
-		padding-bottom: 15px;
-		padding-top: 5px;
+		padding: auto;
+		padding-top: 1%;
 		}
 	
 
@@ -117,7 +130,7 @@
 	.img-1{
 		margin: auto;
 		padding-left: 20px;
-		width: 50%;}
+		width: 30%;}
 
 	.img-2{
 		margin: auto;
@@ -128,7 +141,11 @@
 		padding-left: none;}
 
 	video{
-		width: 940px;}
+		width: 100%;}
+
+	iframe{
+		width:100%;
+	}
 
 /* ------------------------------------------------------
     2. Header and Footer
@@ -195,6 +212,7 @@
 		Each of the courses will have their own color*/
 		
 		table {
+			width: 100%;
 			border-spacing: 1px;}
 
 		th, td {
