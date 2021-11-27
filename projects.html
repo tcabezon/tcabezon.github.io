@@ -3,6 +3,7 @@
         <title>Tomascbzn</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
+        <script src="js/js1.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="page">
@@ -20,13 +21,13 @@
                         <li>
                             <a href="about.html">About.me</a>
                         </li>
-                        <li class=currentLink><a href="projects.html">Projects</a>
+                        <li class="currentLink"><a href="projects.html">Projects</a>
                             <ul class="sub-menu">
                             <li><a href="xyu.html">XYU ring</a></li>
                             <li>Project 2</li>
                             <li>Project 3</li>
                             <li>Project 4</li>
-                            <li>Project 5</li></ul>
+                            <li><a href="courses.html">Courses</a></li></ul>
                         </li>
                         <li>
                             <a href="contact.html">Contact</a>
@@ -37,12 +38,107 @@
                     </ul>
                 <!--</nav>-->
             </div>
+
+            <!-- start content -->
             <div class=content>
-                <p class=project-box><a href="xyu.html">XYU ring</a></p>
-                <p class=project-box>Project2</p>
-                <p class=project-box>Project3</p>
-                <p class=project-box>Project4</p>
-                <p class=project-box>Project5</p>
-            </div>
-        </div>
-    </body>
+                
+                <div id="myBtnContainer">
+                    <p style="font-weight:400;">Choose project type to filter:</p>
+
+                    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                    <button class="btn" onclick="filterSelection('code')"> Code</button>
+                    <button class="btn" onclick="filterSelection('product')"> Product</button>
+                    <button class="btn" onclick="filterSelection('branding')"> Branding</button>
+                    <button class="btn"  onclick="filterSelection('courses')"> Courses</button>
+                  </div>
+
+                <br><br>
+
+                <!-- start container -->
+                <div class='container'>
+                <div class="filterDiv code">
+                    <a href="">
+                        <img src="images/covers/15112.png" alt="112"  >
+                        <span>15-112</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv code">
+                    <a href="">
+                        <img src="images/covers/cycleGAN.png" alt="CycleGAN"  >
+                        <span>CycleGANs for design</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv code product">
+                    <a href="xyu.html">
+                        <img src="images/covers/xyu.png" alt="XYU" >
+                        <span> XYU ring</span>
+                </div>
+
+                <div class="filterDiv code">
+                    <a href="">
+                        <img src="images/covers/3dgenerator.png" alt="3D generator"  >
+                        <span>3D shape generator</span>
+                    </a>
+                </div>
+                
+
+                <div class="filterDiv code">
+                    <a href="c2.html">
+                        <img src="images/covers/c2.png" alt="c2"  >
+                        <span>c2 #code</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv product">
+                    <a href="">
+                        <img src="images/covers/miKitchen.png" alt="Mi Kitchen"  >
+                        <span>mi Kitchen #product</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv product">
+                    <a href="">
+                        <img src="images/covers/treeD.png" alt="treeD"  >
+                        <span>treeD #product</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv branding">
+                    <a href="">
+                        <img src="images/covers/synuous.png" alt="Synuous"  >
+                        <span>Synuous #brand,graphic</span>
+                        
+                    </a>
+                </div>
+
+                <div class="filterDiv branding">
+                    <a href="">
+                        <img src="images/covers/maskManiac.png" alt="MaskManiac"  >
+                        <span>MaskManiac #brand,graphic</span>
+                    </a>
+                </div>
+
+                <div class="filterDiv product">
+                    <a href="">
+                        <img src="images/covers/forsa.png" alt="Forsa"  >
+                        <span>Forså #product</span>
+                    </a>
+                </div>
+            
+            </div> <!-- end container -->
+
+            
+            <p style="padding-right:40px;">Apart from this projects, I have also taken <a href="courses.html" style="font-weight:400;"> these courses.</a></p>
+
+                
+            
+
+            </div> <!-- end content -->
+        </div> <!-- end page -->
+        <script>
+            filterSelection("all")
+        </script>
+    </body> <!-- end body -->
+    </html>
