@@ -2,7 +2,12 @@
     <head>
         <title>Tomascbzn</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link href="css/CSSTemplate.css" type="text/css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
+        <script src="js/threeJS/three.min.js"></script>
+        <script src="js/threeJS/STLLoader.js"></script>
+        <script src="js/threeJS/OrbitControls.js"></script>
+        <script src="js/3dModel.js"></script>
     </head>
     <body>
         <div id="page">
@@ -20,13 +25,13 @@
                         <li>
                             <a href="about.html">About.me</a>
                         </li>
-                        <li class=currentLink><a href="projects.html">Projects</a>
+                        <li class="currentLink"><a href="projects.html">Projects</a>
                             <ul class="sub-menu">
-                            <li class=currentLink><a href="xyu.html">XYU ring</a></li>
+                            <li class="currentLink"><a href="xyu.html">XYU ring</a></li>
                             <li>Project 2</li>
                             <li>Project 3</li>
                             <li>Project 4</li>
-                            <li>Project 5</li></ul>
+                            <li>Courses</li></ul>
                         </li>
                         <li>
                             <a href="contact.html">Contact</a>
@@ -38,39 +43,50 @@
                 <!--</nav>-->
             </div>
             <div class=content>
+                <h1>c2 </h1>
+                <br> 
+                <p>WHEN?  Spring 2018   <br>WHO? <a href="https://www.linkedin.com/in/lorena-moreta-sanz-03173614a/" target="_blank">Lorena Sanz</a>, Tomás Cabezón    <br>WHY?  Parametric Design Studio<br>WHERE?  同济大学 Tongjji University</p>
                 
-                <h1>c2</h1>
-                <p>WHEN?  Spring 2018   <br>WHO? Lorena Sanz, Tomás Cabezón    <br>WHY?  Parametric Design Studio<br>WHERE?  同济大学 Tongjji University</p>
+
                 <br><br>
-
-                <video class=xyu_intro autoplay muted loop>
-
-                    <source src="images/xyu_intro.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-
-                </video>
+                <div class=' container text-lefts d-block d-flex justify-content-lefts '>
+                    <div class='col-sm-6'>
+                        <img src='images/c2/c21.gif' class=' mx-auto   col-sm-5 col-5'>
+                </div></div>
+                <br><br>
+                
+                <p>
+                    For the Parametric Design Class we were asked to design a building through coding in Maya program. My classmate Lorena and I focused on creating a code that would create building based on the area available and the population that would live on it.
+                    <br><br>
+                    With CylinderCube we wanted to create random forms based only on the area and population limitations, in order to scape from the overpopulation solution that we can see in many cities of repeating the same building several times.                </p>
+    
+                <div class='container'>
+                    <br><br>
+                    <img src='images/c2/c21.png' class=' mx-auto d-block img-fluid col-sm-12'>
+                    <br><br>
+                    <img src='images/c2/c22.gif' class=' mx-auto d-block img-fluid col-sm-8'>
+                    <br><br>
+                    <img src='images/c2/c22.png' class=' mx-auto d-block img-fluid col-sm-10 '>
+                    <img src='images/c2/c23.png' class=' mx-auto d-block img-fluid col-sm-10 '>
+                    <img src='images/c2/c24.png' class=' mx-auto d-block img-fluid col-sm-10 '>
+                    <img src='images/c2/c25.png' class=' mx-auto d-block img-fluid col-sm-10 '>
+                </div>
+                <br><br>
+                
+                
                 <br>
+                <div class='container warning d-flex justify-content-center'>
+                    <div id="model"  style="width: 400px; height: 400px;"> </div>
+                </div>
                 
-                <p>
-                For the Parametric Design Class we were asked to design a building through coding in Maya program. My classmate Lorena and I focused on creating a code that would create building based on the area available and the population that would live on it.<br><br>With CylinderCube we wanted to create random forms based only on the area and population limitations, in order to scape from the overpopulation solution that we can see in many cities of repeating the same building several times.
-                </p>
-                <p>
-                    There are infinite possibilities and universes in which this decision did not happen at all, as well as I am sure there are many others in which it also occurred. But if I had to point down a single event it would probably be how I realized AI was quickly taking over designers’ jobs, creating ads, banners… So I thought, how will designers face this new world where thousands of variants can be created with only one click?
-                </p>
-                <p>
-                    Math can be the answer to this, the one that gives the input to generate these infinite possibilities if we integrate algorithms with the power of randomness. If creativity is imagining the impossible, why not have the infinite as the starting point?
-                </p>
-                <img class =xyu src="images/xyu_1.jpeg" alt="" title="" />
-                <p>
-                    XYU ring is not only an item but an infinite. This is not just a jewel, but as many as you want. This is not just a ring, it is an algorithm that designs them.
-                </p>
                 
-                <video class=xyu autoplay muted loop>
+               
+                <script type="text/javascript">
+                    window.onload = function() {
+                        STLViewer("images/c2/c2.stl", "model")
+                    }
+                </script>
 
-                    <source src="images/xyu_1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-
-                </video>
             
 
             </div>
