@@ -172,7 +172,7 @@
 		video.intro{
 			width: 50%;
 			display: block;
-			margin: 0 0 0 auto;
+			margin: 0 auto 0 0;
 		}
 		video.xyu_intro{
 			width: 20%;
@@ -433,8 +433,20 @@
 		.btn{
 			margin-bottom: 10px;
 		}
+		video.intro{
+			width: 80%;
+			display: block;
+			margin: 0 auto 0 auto;
+		}
 	}
 	@media only screen and (max-width:490px) { 
+
+		video.intro{
+			width: 90%;
+			display: block;
+			margin: 0 auto 0 auto;
+		}
+
 		.filterDiv{
 		
 			width: auto;
