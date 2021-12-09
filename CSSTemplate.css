@@ -32,9 +32,15 @@
 	
 	
 	
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;150;200;300;400;500;600;900&family=Roboto:wght@100;400;500;900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;150;200;250;300;350;400;500;600;900&family=Roboto:wght@100;400;500;900&display=swap');
 		
+	
+	html {
+		display: block;
+	}
 	body {
+			margin:0;
+			line-height: normal;
 			font-family: 'Noto Sans Mono',monospace;
 			letter-spacing: 0px;
 			font-weight:150;
@@ -50,9 +56,24 @@
 			display: flex;
 
 		}
-		#header-main-menu{
-			
+		.main-menu{
+			margin: 0 10px 0 0;
+			padding: 0 0px 0 0 0;
 			padding-right:10%;
+		}
+		.main-menu a{
+			margin: 0 10px 0 0;
+			padding: 0 0px 0 0 0;
+			padding-right:10%;
+
+			font-weight:350;
+		}
+
+		.sub-menu a{
+			text-decoration: none;
+	
+			font-weight:150;
+
 		}
 
 		.logo{
@@ -60,15 +81,18 @@
 			font-size: 150%;
 			padding:10% 10% 2% 13%;
 			margin:1%;
+			margin-bottom:20;
 
 		}
 		
 
 		.menu-holder{
 			font-weight:300;
-			padding-left:25px;
+			padding:0 0 0 25px;
+			margin:0;
 			width: 200px;
 			min-width: 200px;
+
 		}
 		
 		 
@@ -92,10 +116,22 @@
 		}
 		.sub-menu{
 			list-style-type: none;
-			margin:  1px 10px 0 10px;
-			padding:0 10px 0 10px;
-
+			margin:  0px 0px 0 10px;
+			padding:0 0px 0 10px;
+			
 		}
+
+		dl, ol, ul {
+			margin: 0 10px 0 0; 
+			
+		}
+		ol, ul {
+			 padding-left: 2rem;
+		}
+		*, ::after, ::before {
+			box-sizing:inherit;
+		}
+
 	
 		
 		a,li a{
@@ -103,9 +139,8 @@
 			color:black;
 		}
 
-		.currentLink > a{
-			text-decoration: underline;
-		}
+		
+		
 
 		a:hover,li a:hover {
 				background-color: LavenderBlush;
@@ -115,12 +150,25 @@
 				
 				border: none;
 				}
+
+		
+
 		li ul li a:hover {
 			background-color: #fff7fa;
 			font-weight: 500;
 			color: black;
 			border: none;・
 					}
+
+		.currentLink {
+			text-decoration: underline;
+		}
+
+		a.underline {
+			
+			text-decoration: underline;
+			
+		}
 
 		/* ------------------------------------------------------
             1.1.1. Text (paragraph and headers)
@@ -131,6 +179,7 @@
 			font-weight:600;
 			text-align: justify;
 			align: left;
+			font-size:40px;
 
 		}
 
@@ -339,6 +388,14 @@
 		text-decoration:underline;
 		cursor: pointer;
 	}
+
+	button{
+		display: none; 
+		position: fixed; 
+		bottom:30px; 
+		right: 100px;
+		cursor: pointer;
+	}
 	
 	
 
@@ -438,6 +495,17 @@
 			display: block;
 			margin: 0 auto 0 auto;
 		}
+		button{
+			display: none; 
+			position: fixed; 
+			bottom:10px; 
+			right: 10px;
+			cursor: pointer;
+		}
+		.footer{
+			text-align: center;
+		}
+		
 	}
 	@media only screen and (max-width:490px) { 
 
@@ -464,6 +532,7 @@
 			height: auto;
 			min-height: 180px;
 		}
+		
 	}
 	} 
 
@@ -473,32 +542,7 @@
         END
     ------------------------------------------------------ */		
 
-/* ------------------------------------------------------
-        APPLY COLORS TO SECTIONS
-    ------------------------------------------------------ */
-/*
-#page{
-	background-color:cornflowerblue;
-}
-.menu-holder{
-	background-color:crimson;
-}
-.logo {
-	background-color:darkgoldenrod;
-}
-.main-menu{
-	background-color:darkgreen;
-}
-.content {
-	background-color:blue;
-}
-ul li {
-	background-color:pink;
-}
-ul {
-		background-color:greenyellow;
-}
-*/
+
 
 	
 

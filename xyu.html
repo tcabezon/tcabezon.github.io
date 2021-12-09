@@ -8,42 +8,21 @@
         <script src="js/threeJS/STLLoader.js"></script>
         <script src="js/threeJS/OrbitControls.js"></script>
         <script src="js/3dModel.js"></script>
+        <script src="js/backToTop.js"></script>
     </head>
     <body>
         <div id="page">
-            <div class='fixed'></div>
-            <div class="menu-holder">
-                
-                <div class=logo>
-                    <span id=logo>
-                        <a href="index.html"> Tomascbzn</a>
-                    </span>
-                </div>
-                <!--<nav id="header-main-menu">-->
-                    <ul class="main-menu">
-                        <!-- <li><a href="index.html">Home</a></li> -->
-                        <li>
-                            <a href="about.html">About.me</a>
-                        </li>
-                        <li class="currentLink"><a href="projects.html">Projects</a>
-                            <ul class="sub-menu">
-                            <li class="currentLink"><a href="xyu.html">XYU ring</a></li>
-                            <li>Project 2</li>
-                            <li>Project 3</li>
-                            <li>Project 4</li>
-                            <li>Courses</li></ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                        <li>
-                            <a href="cv.html"> CV </a>
-                        </li>
-                    </ul>
-                <!--</nav>-->
-            </div>
+            <!-- HEADER -->
+            <script language="javascript" type="text/javascript" src="js/header.js"></script>
+            <script>
+                document.querySelectorAll("a[href='projects.html']")[0].className="underline";
+                document.querySelectorAll("a[href='xyu.html']")[0].className="underline";
+            </script>
+            <!-- end HEADER -->
             <div class=content>
+                
                 <h1>XYU ring </h1>
+                
                 <br>
                 <p>WHEN?  Fall 2018   <br>WHO? Tomás Cabezón    <br>WHY?  Contemporary Jewellery Design based on Glass Innovation Course<br>WHERE?  同济大学 Tongjji University</p>
 
@@ -108,7 +87,7 @@
                     }
                 </script>
 
-            
+            <br><br><br><br><p class=footer>©Tomas Cabezon Pedroso, 2021</p>
 
             </div>
         </div>
