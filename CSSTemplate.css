@@ -70,8 +70,7 @@
 		}
 
 		.sub-menu a{
-			text-decoration: none;
-	
+			text-decoration: none; 
 			font-weight:150;
 
 		}
@@ -532,6 +531,12 @@
 			height: auto;
 			min-height: 180px;
 		}
+		
+		ul li {
+			padding: 2px 8px 0px 0px;
+			
+		}
+		
 		
 	}
 	} 
