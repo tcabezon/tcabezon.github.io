@@ -388,13 +388,7 @@
 		cursor: pointer;
 	}
 
-	button{
-		display: none; 
-		position: fixed; 
-		bottom:30px; 
-		right: 100px;
-		cursor: pointer;
-	}
+	
 	
 	
 
@@ -494,13 +488,7 @@
 			display: block;
 			margin: 0 auto 0 auto;
 		}
-		button{
-			display: none; 
-			position: fixed; 
-			bottom:10px; 
-			right: 10px;
-			cursor: pointer;
-		}
+		
 		.footer{
 			text-align: center;
 		}
@@ -536,6 +524,7 @@
 			padding: 2px 8px 0px 0px;
 			
 		}
+		
 		
 		
 	}
