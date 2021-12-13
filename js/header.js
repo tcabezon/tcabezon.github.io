@@ -26,6 +26,7 @@ document.write(`<!-- HEADER -->
                             <li><a href='synuous.html'>synuous</a></li>
                             <li><a href='maskManiac.html'>MaskManiac</a></li>
                             <li><a href='forsa.html'>Forså</a></li>
+                            <li><a href='nosotros.html'>Nosotros</a></li>
                             <li><a href='courses.html'>Courses</a></li></ul>
                         </li>
                         <li>
