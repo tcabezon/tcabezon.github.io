@@ -17,7 +17,7 @@ document.write(`<!-- HEADER -->
                         <li><a href='projects.html'>Projects</a>
                             <ul class='sub-menu'>
                             <li><a href='hnx.html'>hnx.py</a></li>
-                            <li><a href='CycleGANs.html'>CycleGANs for design</a></li>
+                            <li><a href='cycleGANs.html'>CycleGANs for design</a></li>
                             <li><a href='xyu.html'>XYU ring</a></li>
                             <li ><a href='TFG.html'>TFG</a></li>
                             <li><a href='c2.html'>c2</a></li>
