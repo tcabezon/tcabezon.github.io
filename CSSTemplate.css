@@ -57,6 +57,7 @@
 
 		}
 		.main-menu{
+			text-align: left;
 			margin: 0 10px 0 0;
 			padding: 0 0px 0 0 0;
 			padding-right:10%;
@@ -74,6 +75,14 @@
 			font-weight:150;
 
 		}
+		.sub-menu li{
+			margin-top: 1px;
+
+		}
+		.first{
+			padding-top: 5px;
+		}
+		
 
 		.logo{
 			font-weight:400;
