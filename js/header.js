@@ -20,7 +20,9 @@ document.write(`<!-- HEADER -->
                             <li><a href='cyclegans.html'>CycleGANs for design</a></li>
                             <li><a href='xyu.html'>XYU ring</a></li>
                             <li><a href='112.html'>15.112- 3D modelling</a></li>
+                            <li><a href='back.html'>Back in the game Web</a></li>
                             <li><a href='wearable.html'>Wearable design</a></li>
+                            <li><a href='xyuWeb.html'>XYU web design</a></li>
                             <li ><a href='TFG.html'>TFG</a></li>
                             <li><a href='c2.html'>c2</a></li>
                             <li><a href='miKitchen.html'>miKitchen</a></li>
