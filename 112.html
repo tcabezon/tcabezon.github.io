@@ -1,142 +1,194 @@
 <!DOCTYPE html>
-    <head>
-        <title>Tomascbzn</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="shortcut icon" href="images/firma.png"/>
-        <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
-        
 
-    </head>
-    <body>
-        <div id="page">
-            <!-- HEADER -->
-            <script language="javascript" type="text/javascript" src="js/header.js"></script>
-            <script>
-                document.querySelectorAll("a[href='projects.html']")[0].className="underline";
-                document.querySelectorAll("a[href='601.html']")[0].className="underline";
-            </script>
-            <!-- end HEADER -->
+<head>
+    <title>Tomascbzn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="images/firma.png" />
+    <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
 
-            <!-- content -->
-            <div class=content>
-                <h1 class=smaller>15.112- 3D modelling</h1>
-                <br>
-                <p>
-                    WHEN?  Fall 2021   <br>WHO? Tomás Cabezón    <br>WHY? 15-112: Fundamentals of Programming and Computer Science<br>WHERE?  CMU</p>
-                <br>
-                <div class='container  justify-content-left'>
-                    <img src='images/112/intro.gif' class=' mx-auto d-block img-fluid  col-sm-9 '>
-                    <br><br>
-                </div>
-                <p>
-                    For the 15-112 course, <a target='_blank' href="https://www.cs.cmu.edu/~112/index.html" class="underline" target="_blank">Fundamentals of Computing Science</a>, we were asked to design and implement a program of our choosing. This was an open project to put into practice what we had learned during the course. I had no doubts about what I wanted to do. A 3D modeling program! I remember talking with the teaching assistant about this idea and she suggesting that it was a very ambitious project and that I should have a backup plan in case I wasn’t able to develop it. That warning only motivated me to go for it. As a designer and engineer, I am aware of the difference that CAD (Computer Aided Design) programs have in any design process, a tool that is nowadays fundamental for any project, I wonder what they would do at any design or engineering company without their computational tools.
-                    <br><br>
-                    Every part of this project is developed from scratch using basic python functions. Only mumpy library was imported to help with the matrix operations and for the GUI, cmu 112 graphics package was used, based on Tkinter library for python.
-                    <br><br>
-                    To generate the 3D objects, the vertices and faces that generate the object need to be defined. To preview the objects in the program, the object was converted from 3D to a 2D isometric view. The changes made by the user in the screen, 2D space, are then converted into 3D. 
-                    </p>
-                    <div class='container  justify-content-left'>
-                        <img src='images/112/isometric.png' class=' mx-auto d-block img-fluid  col-sm-11 '>
-                        
-                        <br>
-                    </div>
-                    <p> 
-                    For this part of the project apart from the isometric graphic functions, the following functions were also developed:
-                    <br> <br>&emsp;- Rotation of object with user dragging
-                    <br>&emsp;- Basic mesh editing (clicking/dragging vertices around)
-                    
-                </p>
+
+</head>
+
+<body>
+    <div id="page">
+        <!-- HEADER -->
+        <script language="javascript" type="text/javascript" src="js/header.js"></script>
+        <script>
+            document.querySelectorAll("a[href='projects.html']")[0].className = "underline";
+            document.querySelectorAll("a[href='601.html']")[0].className = "underline";
+        </script>
+        <!-- end HEADER -->
+
+        <!-- content -->
+        <div class=content>
+            <h1 class=smaller>15.112- 3D modelling</h1>
+            <br>
+            <p>
+                WHEN? Fall 2021 <br>WHO? Tomás Cabezón <br>WHY? 15-112: Fundamentals of Programming and Computer
+                Science<br>WHERE? CMU</p>
+            <br>
+            <div class='container  justify-content-left'>
+                <img src='images/112/intro.gif' class=' mx-auto d-block img-fluid  col-sm-9 '>
                 <br><br>
-                <h3>Rotation of object</h3>
+            </div>
+            <p>
+                For the 15-112 course, <a target='_blank' href="https://www.cs.cmu.edu/~112/index.html"
+                    class="underline" target="_blank">Fundamentals of Computing Science</a>, we were asked to design and
+                implement a program of our choosing. This was an open project to put into practice what we had learned
+                during the course. I had no doubts about what I wanted to do. A 3D modeling program! I remember talking
+                with the teaching assistant about this idea and she suggesting that it was a very ambitious project and
+                that I should have a backup plan in case I wasn’t able to develop it. That warning only motivated me to
+                go for it. As a designer and engineer, I am aware of the difference that CAD (Computer Aided Design)
+                programs have in any design process, a tool that is nowadays fundamental for any project, I wonder what
+                they would do at any design or engineering company without their computational tools.
+                <br><br>
+                Every part of this project is developed from scratch using basic python functions. Only mumpy library
+                was imported to help with the matrix operations and for the GUI, cmu 112 graphics package was used,
+                based on Tkinter library for python.
+                <br><br>
+                To generate the 3D objects, the vertices and faces that generate the object need to be defined. To
+                preview the objects in the program, the object was converted from 3D to a 2D isometric view. The changes
+                made by the user in the screen, 2D space, are then converted into 3D.
+            </p>
+            <div class='container  justify-content-left'>
+                <img src='images/112/isometric.png' class=' mx-auto d-block img-fluid  col-sm-11 '>
+
+                <br>
+            </div>
+            <p>
+                For this part of the project apart from the isometric graphic functions, the following functions were
+                also developed:
+                <br> <br>&emsp;- Rotation of object with user dragging
+                <br>&emsp;- Basic mesh editing (clicking/dragging vertices around)
+
+            </p>
+            <br><br>
+            <h3>Rotation of object</h3>
+            <br>
+            <div class='container-fluid p-0 m-0 '>
+                <div class='row align-self-start  p-0 m-0'>
+                    <div class='p-0 m-0 col-sm-6 col-lg-5'>
+                        <img src='images/112/rotating.gif'
+                            class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
+                    </div>
+                    <div class='p-0 m-0 col-sm-6 col-lg-7'>
+                        <p class='col-sm-12'> <br> For user rotation, either dragging or by keyboard, a rotation matrix
+                            was used. The matrix of a rotation of the points by an angle θ around the axis given by the
+                            unit vector u = (ux, uy, uz) is given by:
+                            <span class='col-sm-12 p-0 m-0'><br><br>
+                                <img src='images/112/eq1.svg' class='  img-fluid p-0 m-0 col-sm-12' />
+
+                    </div>
+                </div>
+                <br><br>
+                <h3>Basic mesh editing</h3>
+                <br>
+                <p>Two different ways of editing the mesh were developed. As the user interacts with a 2D screen, it is
+                    not possible to define the 3D position of a vertix that is being moved. Therefore, two different
+                    modes of editing were developed.</p>
+                <br>
+                <h5>&emsp;- XY plane</h5>
                 <br>
                 <div class='container-fluid p-0 m-0 '>
                     <div class='row align-self-start  p-0 m-0'>
                         <div class='p-0 m-0 col-sm-6 col-lg-5'>
-                        <img src='images/112/rotating.gif' class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
+                            <img src='images/112/moveXYreduced.gif'
+                                class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
                         </div>
-                        <div class='p-0 m-0 col-sm-6 col-lg-7'>
-                        <p class='col-sm-12' > <br> For user rotation, either dragging or by keyboard, a rotation matrix was used. The matrix of a rotation of the points by an angle θ around the axis given by the unit vector u = (ux, uy, uz) is given by:
-                             <span class='col-sm-12 p-0 m-0' ><br><br>
-                                <img src='images/112/eq1.svg' class='  img-fluid p-0 m-0 col-sm-12'/>
-                                
+                        <div class='p-0 m-0 col-sm-6 col-lg-7 justify-content-center'>
+                            <p class='col-sm-12'> <br> When the user drags a vertex in this mode, the z coordinate is
+                                fixed, so the point is moved in the XY plane. The equations used to calcultate the new
+                                3D coordinates of the point are the following.</p>
+                            <img src='images/112/eq2.svg' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8' />
+                            <br>
+                            <img src='images/112/movXY.png' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8 col-8' />
                         </div>
                     </div>
-                    <br><br>
-                    <h3>Basic mesh editing</h3>
-                    <br>
-                    <p>Two different ways of editing the mesh were developed. As the user interacts with a 2D screen, it is not possible to define the 3D position of a vertix that is being moved. Therefore, two different modes of editing were developed.</p>
-                    <br>
-                    <h5>&emsp;- XY plane</h5>
-                    <br>
-                    <div class='container-fluid p-0 m-0 '>
-                        <div class='row align-self-start  p-0 m-0'>
-                            <div class='p-0 m-0 col-sm-6 col-lg-5'>
-                            <img src='images/112/moveXYreduced.gif' class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
-                            </div>
-                            <div class='p-0 m-0 col-sm-6 col-lg-7 justify-content-center'>
-                                <p class='col-sm-12' > <br> When the user drags a vertex in this mode, the z coordinate is fixed, so the point is moved in the XY plane. The equations used to calcultate the new 3D coordinates of the point are the following.</p>                                
-                                <img src='images/112/eq2.svg' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8'/>
-                                <br>
-                                <img src='images/112/movXY.png' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8 col-8'/>
-                            </div>
-                        </div>
                     <br>
                     <h5>&emsp;- Z plane</h5>
                     <br>
                     <div class='container-fluid p-0 m-0 '>
                         <div class='row align-self-start  p-0 m-0'>
                             <div class='p-0 m-0 col-sm-6 col-lg-5'>
-                            <img src='images/112/moveZreduced.gif' class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
+                                <img src='images/112/moveZreduced.gif'
+                                    class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
                             </div>
                             <div class='p-0 m-0 col-sm-6  col-lg-7 justify-content-center'>
-                                <p class='col-sm-12' > <br> When the user drags a vertex in this mode, the X and Y coordinates are fixed, so the point is only moved vertically. This means that the only 3D coordinate that will change will be Z. The equation used to calcultate the new coordinates of the point is the following.</p>                                
-                                <img src='images/112/eq3.svg' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8'/>
+                                <p class='col-sm-12'> <br> When the user drags a vertex in this mode, the X and Y
+                                    coordinates are fixed, so the point is only moved vertically. This means that the
+                                    only 3D coordinate that will change will be Z. The equation used to calcultate the
+                                    new coordinates of the point is the following.</p>
+                                <img src='images/112/eq3.svg' class='  img-fluid p-0 m-0 col-sm-10 col-lg-8' />
                                 <br><br>
-                                <img src='images/112/movZ.png' class='  img-fluid p-0 m-0 col-sm-9 col-lg-7 col-8'/>
+                                <img src='images/112/movZ.png' class='  img-fluid p-0 m-0 col-sm-9 col-lg-7 col-8' />
 
 
                             </div>
                         </div>
                     </div>
-                <br><br>
-                <h3>Spheres and Bezier</h3>
-                <br>
-                    <p>Once programmed some basic functions, some algorithms to generate 3D objects were developed, spheres and bezier 3D objects. Both of them were generated by rotating a 2D shape along an axis.</p>
+                    <br><br>
+                    <h3>Spheres and Bezier</h3>
+                    <br>
+                    <p>Once programmed some basic functions, some algorithms to generate 3D objects were developed,
+                        spheres and bezier 3D objects. Both of them were generated by rotating a 2D shape along an axis.
+                    </p>
                     <h5>&emsp;- Sphere</h5>
-                    <p class='col-sm-12' > <br> To generate the sphere, a semisphere is rotated along the Z axis. The number of subdivisions of this curve if given by the parameter stepU. The number of subdivisions in the rotation process is given by the stepV parameter. In the following images the influence of these two parameters as well as the explanation of how the algorithm was developed can be seen.</p>                                
+                    <p class='col-sm-12'> <br> To generate the sphere, a semisphere is rotated along the Z axis. The
+                        number of subdivisions of this curve if given by the parameter stepU. The number of subdivisions
+                        in the rotation process is given by the stepV parameter. In the following images the influence
+                        of these two parameters as well as the explanation of how the algorithm was developed can be
+                        seen.</p>
                     <br>
                     <div class='container-fluid p-0 m-0 '>
                         <div class='row align-self-start  p-0 m-0'>
                             <div class='p-0 m-0 col-sm-6 col-lg-5'>
-                            <img src='images/112/sphereGif.gif' class='  align-self-start p-0 m-0   d-block float-top col-12 '>
+                                <img src='images/112/sphereGif.gif'
+                                    class='  align-self-start p-0 m-0   d-block float-top col-12 '>
                             </div>
                             <div class='p-0 m-0 col-sm-6 col-lg-7 justify-content-center'>
-                                <br><img src='images/112/sphereProccess.png' class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
+                                <br><img src='images/112/sphereProccess.png'
+                                    class='  align-self-start" p-0 m-0   d-block float-top col-12 '>
 
                             </div>
                         </div>
                     </div>
-                <br><br>
-                <h5>&emsp;- Bezier</h5>
-                <br>
-                <p>To generate the 3D bezier object, the same rotation algorithm as in the spheres was used. However, the initial shape used, instead of a semisphere, it is a Bezier Curve. To generate this curve the user can define the control points of the curve and see the generated shape. To implement this function, and generate the bezier curve, De Casteljau’s algorithm was used. In the following images, the interaction between the program and the user can be seen as well as the explanation of how the recursive algorithm for implementing the bezier curves.</p>
-                <div class='container  justify-content-left'>
-                    
-                    <img src='images/112/bezierProccess.png' class=' mx-auto d-block img-fluid  col-sm-10 '>
-                    
-                    <img src='images/112/bezierGIF.gif' class=' mx-auto d-block img-fluid  col-sm-12 '>
+                    <br><br>
+                    <h5>&emsp;- Bezier</h5>
+                    <br>
+                    <p>To generate the 3D bezier object, the same rotation algorithm as in the spheres was used.
+                        However, the initial shape used, instead of a semisphere, it is a Bezier Curve. To generate this
+                        curve the user can define the control points of the curve and see the generated shape. To
+                        implement this function, and generate the bezier curve, De Casteljau’s algorithm was used. In
+                        the following images, the interaction between the program and the user can be seen as well as
+                        the explanation of how the recursive algorithm for implementing the bezier curves.</p>
+                    <div class='container  justify-content-left'>
 
-                </div>
-                <br>
-                <p>The different algorithms and functions implemented for this project were later used for the <a href='hnx.html' class=underline>hnx.py</a> project.</p>
-                
-                
-                <br><br><br><br><p class=footer>©Tomas Cabezon Pedroso, 2021</p>
-                
+                        <img src='images/112/bezierProccess.png' class=' mx-auto d-block img-fluid  col-sm-10 '>
 
-            </div> <!-- end content -->
-        </div> <!-- end page -->
-    </body> <!-- end body -->
-    </html
+                        <img src='images/112/bezierGIF.gif' class=' mx-auto d-block img-fluid  col-sm-12 '>
+
+                    </div>
+                    <br>
+                    <p>The different algorithms and functions implemented for this project were later used for the <a
+                            href='hnx.html' class=underline>hnx.py</a> project.
+                    </p>
+                    <br><br>
+                    <div class='container  justify-content-left'>
+                        <a href='hnx.html' class=underline>
+                            <img src='images/112/hnx.jpg' class=' mx-auto d-block img-fluid  col-sm-10 '>
+                        </a>
+                    </div>
+
+                    <br>
+                    <br><br><br><br>
+                    <p class=footer>©Tomas Cabezon Pedroso, 2021</p>
+
+
+                </div> <!-- end content -->
+            </div> <!-- end page -->
+</body> <!-- end body -->
+
+</html
