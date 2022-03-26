@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Tomascbzn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="images/firma.png" />
+    <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
+
+    <style>
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        i {
+            font-style: italic;
+        }
+
+        b {
+            font-weight: 500;
+        }
+
+        h2 {
+            text-decoration: underline;
+        }
+
+        figcaption {
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.8em;
+            padding: 8px;
+            margin-left: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 350;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            background-color: LavenderBlush;
+            color: black;
+
+            font-weight: 500;
+
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <!-- HEADER -->
+        <script language="javascript" type="text/javascript" src="js/header.js"></script>
+        <script>
+            document.querySelectorAll("a[href='projects.html']")[0].className = "underline";
+        </script>
+        <!-- end HEADER -->
+
+        <!-- content -->
+        <div class='content'>
+
+
+            <br><br>
+            <br><br>
+            <br><br>
+            <h1 class="text-center"> Colorizing the Prokudin-Gorskii<br>Photo Collection</h1>
+
+            <br>
+
+            <h6 class="text-center">CMU 16-726 Image Synthesis S22 </h6>
+            <h6 class="text-center">Tomas Cabezon Pedroso</h6>
+
+
+            <br>
+
+            <br><br>
+            <p>
+                Sergey Mikhaylovich Prokudin-Gorsky was a chemist and photographer of the Russian Empire. He is best
+                known
+                for his pioneering work in color photography and his effort to document early 20th-century Russia. In
+                imitation to the way the human eye senses color, in his pothograps the visible spectrum of colors was
+                divided into three channels of information by capturing it in the form of three black-and-white
+                photographs,
+                one taken through a red filter, one through a green filter, and one through a blue filter.
+            </p>
+
+            <div class="row">
+                <img src="images/colorizing/graph1.png" class='col-sm-10 d-block float-top mx-auto d-block img-fluid col-12'>
+            </div>
+            <br>
+
+            <p>
+                Those original negative images (available in the Library of Congress) are going to be used in this
+                assignment to compose the color photographs. Due to the way the images were captured using three
+                different
+                cameras, as it can be seen in the image above, the negatives are not aligned. Therefore, to generate the
+                RGB
+                images, these negatives first need to be preprocessed.
+            </p>
+            <br>
+            <h2>Proccees </h2>
+
+            <br>
+
+            <div class="row">
+                <img src="images/colorizing/gif.gif" class='col-sm-10 d-block float-top mx-auto d-block img-fluid col-12'>
+            </div>
+            
+            <p>
+                To generate the final image, we need to divide the initial image into red, green, and blue channels.
+                Actually, the original glass negatives are ordered in blue, green, and red order from top to bottom
+                Then, as
+                we can see in the gif image, we have to find the correct alignment of the three taking one of them as
+                the
+                base, in our case the blue channel. Once the alignment is found, we can combine the three channels.
+            </p>
+            <br><br>
+            <h3>Search Methods</h3>
+            <br>
+            <p>
+                As matching criteria, two different metrics have been considered, the Sum of the Square Differences
+                (SSD) and the normalized Cross-Correlation (NCC):
+                <br><br>
+
+                The Sum of Squared Differences is calculated based on the following equation,
+                <br><br><br>
+                <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Clarge%20SSD%3D%5Csum_%7Bw%2Ch%7D%20%5Cleft%20%28%20F_%7Bw%2Ch%7D%20-%20G_%7Bw%2Ch%7D%20%5Cright%20%29%5E2"
+                    class='float-center mx-auto d-block img-fluid col-lg-3 col-sm-5 col-7'>
+                <br>
+                where <i>F</i> and <i>G</i> are both of the arrays we are comparing and <i>h,w</i> the corresponding
+                pixels at a given height and width. The best alignment will be the one with the lower NCC value, this is
+                the argmax of the previous equation.
+                <br><br>
+
+                The Normalized Cross-Correlation is calculated based on the following equation where as the name
+                suggests,both of the arrays are first normalized
+                <br><br><br>
+                <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Clarge%20NCC%3D%5Cfrac%7B%5Csum%20_%7Bw%2Ch%7D%28F_%7Bw%2Ch%7D-%5Cmu%20F_%7Bw%2Ch%7D%29%28G_%7Bw%2Ch%7D-%5Cmu%20G_%7Bw%2Ch%7D%29%7D%7B%5Csqrt%7B%5Csum%20_%7Bw%2Ch%7D%28F_%7Bw%2Ch%7D-%5Cmu%20F_%7Bw%2Ch%7D%29%5E2%7D%5Csqrt%7B%5Csum%20_%7Bw%2Ch%7D%28%20G_%7Bw%2Ch%7D-%5Cmu%20G_%7Bw%2Ch%7D%29%5E2%7D%7D"
+                    class='float-center mx-auto d-block img-fluid col-lg-6 col-sm-8 col-10'>
+                <br>
+                where <i>​​&mu;F</i> and <i>​​&mu;G</i> are the average of <i>F</i> and
+                <i>G</i> respectively. The bestalignment will be the one with the highest value
+            </p>
+            <br><br>
+            <h3>Image Pyramid</h3>
+            <br>
+            <p>
+                For higher dimension images, the previous brute force approach is not feasible, as the number of
+                possible alignment combinations increases, which is translated in a higher computation time. For
+                those images, the pyramid algorithm is used. This algorithm consists in creating a multi-scale
+                representation of the image. On each level the image is reduced by half, to do so, previous two the
+                downsampling, a Gaussian filter is applied to prevent wrong aliasing in the process. In my case, I
+                have downsampled the images until reached a dimension similar to the cathedral image, where we have
+                seen that the initial search on a 15x15 grid is feasible.
+
+                The search for the correct alignment is started with this smaller dimension of the image and then is
+                translated to higher dimensions. Every time we look for the correct alignment on a higher dimension
+                image, the previous displacement is taken into account and a new 3x3 displacement grid is
+                considered.
+            </p>
+            <br><br>
+            <h2>Bells and Whistles</h2>
+            <br><br>
+            <h3>Automatic cropping</h3>
+            <br>
+            <p>
+
+                Due to the alignment process, we can see that the borders of the resulting photographs have strange
+                colors due to the three channels displacement and the black and white borders of the original glass
+                negatives. To find those borders a Sobel filter has been applied both vertically and horizontally.
+                The absolute values of the outputs have been considered and then combined vertically and
+                horizontally to find the respective borders.
+            </p>
+            <div class="container col-lg-10 col-12 ">
+                <img src="images/colorizing/emir.jpg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                <figcaption>Displacement vectors. G:(48, 24) R:(102, 42)<br> Crops: (126, 118, 222, 317)</figcaption>
+                
+            </div>
+            <br>
+            <br><br>
+            <h3>Gradient for the alignment</h3>
+            <br>
+            <p>
+                Some of the images, such as the emir or the village images, may be more difficult to align. This is
+                because our alignment metric is based on the pixel values of the three images, however, this may not
+                be a good approach as the pixel values may vary a lot in the different channels, as it is the case
+                of the emir’s clothing, that is blue, so it will have higher pixel values in that channel but not in
+                the others. In that case, we can use the same search metric but instead of using the pixel values,
+                we could use other image features, as it can be the gradient to find the best alignment.
+            </p>
+            <br>
+            <div class="container  col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center">
+
+                        <img src="images/colorizing/village_comparing_NCC.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors (Using pixel metric). <br>G:(65, 10) R:(136, -4)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/village_comparing_gradV.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors (Using Sobel filter). <br>G:(64, 11) R:(137, 22)</figcaption>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <h3>Automatic contrast</h3>
+            <br>
+            <p>
+                Sigmoid function has been used to apply automatic contrast to the image and improve the perception
+                of it.
+            </p>
+            <br>
+            <div class="container  col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center ">
+
+                        <img src="images/colorizing/three_generations_level0_c.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors G:(54, 12) R:(110, 10)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/three_generations_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors G:(54, 12) R:(110, 10)<br>Sigmoid: alpha=6 betha=2.5</figcaption>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <h2>Results</h2>
+            <br>
+            <p>
+                The final alignment results of our methods on all the input images can be seen below.
+            </p>
+            <br>
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center ">
+
+                        <img src="images/colorizing/three_generations_level0_c_edited.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(54, 12) R:(110, 10)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/train_level0.png" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(42,1) R.(87, 30)  </figcaption>
+                    </div>
+                </div>
+            </div>
+            <!--row-->
+            <div class="container  col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center">
+
+                        <img src="images/colorizing/self_portrait_level0_c.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(79,29) R.(176,36)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/turkmen_level0_c_editedDark.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(56,19) R.(114, 26) </figcaption>
+                    </div>
+                </div>
+            </div>
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center ">
+
+                        <img src="images/colorizing/lady_level0_c_edited.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(54,2) R.(113,1)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/harvesters_level0.jpg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(60,16) R.(123,12)</figcaption>
+                    </div>
+                </div>
+            </div>
+            
+            <!--row-->
+            <div class="container  col-12 ">
+                <div class="row p-0 m-0 ">
+                    
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/icon_level0.jpg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(41,17) R:(89,23) </figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/emir_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(48, 24) R:(102, 42) </figcaption>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    
+                    
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/door_level0_c.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(49,23) R.(106, 39) </figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/women_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(-17, 10) R.(10,17) </figcaption>
+                    </div>
+                </div>
+            </div>
+            <!--row-->
+            <div class="container  col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/shop_level0_c_editedlight.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(77,43) R.(161, 76) </figcaption>
+                    </div>
+                    <div class="col-md-5 ">
+
+                        <img src="images/colorizing/group_level0_c.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(82,67,10) R:(145, -5)</figcaption>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    
+                    
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/forest_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(52,-23) R.(131, 17) </figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/man_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(30,10) R.(10,17) </figcaption>
+                    </div>
+                </div>
+            </div>
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    
+                    
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/entrance_level0_c_edited.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(69,20) R.(146,37) </figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/church_level0_c.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(20,24) R.(31,30)) </figcaption>
+                    </div>
+                </div>
+            </div>
+            <!--row-->
+            <div class="container col-12 ">
+                <div class="row p-0 m-0 ">
+                    <div class="col-md-5 align-self-center">
+
+                        <img src="images/colorizing/carpet_level0_c.jpeg" class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(82,0) R:(161,-10)</figcaption>
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                        <img src="images/colorizing/village_level0_c.jpeg" class='float-center mx-auto d-block img-fluid col-12'>
+                        <figcaption>Displacement vectors. G:(64,11) R:(137,22) </figcaption>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <br><br><br><br>
+            <p class=footer>©Tomas Cabezon Pedroso, 2021</p>
+
+
+
+        </div> <!-- end content -->
+    </div> <!-- end page -->
+</body> <!-- end body -->
+
+</html>

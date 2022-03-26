@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Tomascbzn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="images/firma.png" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="CSSTemplate.css" type="text/css" rel="stylesheet" />
+
+    <style>
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        i {
+            font-style: italic;
+        }
+
+        b {
+            font-weight: 500;
+        }
+
+        h2 {
+            text-decoration: none;
+
+        }
+
+        figcaption {
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.8em;
+            padding: 8px;
+            margin-left: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 350;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            background-color: LavenderBlush;
+            color: black;
+
+            font-weight: 500;
+
+            border: none;
+        }
+
+        .filterDiv2 {
+            display: inline-block;
+            /*display: none;  Hidden by default */
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .filterDiv {
+            font-weight: 200;
+            float: left;
+            display: inline;
+            width: 200px;
+            margin: 25px 40px 25px 0px;
+            padding-bottom: 50px;
+            height: auto;
+            text-align: center;
+            margin: 10px;
+            display: block;
+
+
+            /*display: none;  Hidden by default */
+        }
+
+
+
+        .accordion-button:not(.collapsed) {
+            color: #000000;
+            background-color: #797d83;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.13);
+            text-decoration: underline;
+        }
+
+        .accordion-button:focus {
+            z-index: 3;
+            border-color: #fe86b4;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.13);
+            text-decoration: none;
+        }
+
+        .accordion-button:hover {
+            z-index: 3;
+            border-color: #fe86b4;
+            outline: 0;
+            box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.13);
+            text-decoration: underline;
+        }
+
+
+
+
+        .accordion-flush .accordion-item .accordion-button {
+            border-radius: 2px;
+            border: black;
+            background-color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <!-- HEADER -->
+        <script language="javascript" type="text/javascript" src="js/header.js"></script>
+        <script>
+            document.querySelectorAll("a[href='projects.html']")[0].className = "underline";
+        </script>
+        <!-- end HEADER -->
+
+        <!-- content -->
+        <div class='content'>
+
+
+
+
+            <h1>Image Synthesis</h1>
+            <br>
+            <p>WHEN? Spring 2022 <br>WHO? Tomas Cabezon <br>WHY? 16-726 Image Synthesis<br>WHERE? Carnegie Mellon
+            </p>
+
+            <p>
+                <img src="images/covers/gan_.png"
+                    class='  d-block float-center mx-auto d-block img-fluid col-sm-6  col-10'>
+                <br>
+                This pages shows the different projects developed in the claas <a
+                    href="https://learning-image-synthesis.github.io/sp22/" target="_blank">Image Synthesis</a> with
+                professor Jun-Yan Zhu. Just click on the following sections to expand each project:
+
+
+            </p>
+
+
+            <div class="accordion accordion-flush">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Proj#3: When cats meet GANs
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- proj 3-->
+                            <div>
+
+
+                                <br><br>
+
+
+                                <div class="container m-0 p-0 col-12 align-self-center ">
+                                    <div class="row col-12 align-self-center m-0 p-0 ">
+
+
+                                        <img src="images/cats/gif/_grumpifyBprocessed_deluxe.gif"
+                                            class='  d-block float-center mx-auto d-block img-fluid col-sm-5  col-8'>
+                                        <figcaption class="text-center">Grumpy cat DCGAN training outputs</figcaption>
+
+
+
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p>
+                                    In this project, we will explore coding and training of GANs (Generative Adversarial
+                                    Networks). This
+                                    assignment is divided into two
+                                    parts: in the first part, we will implement a specific type of GAN designed to
+                                    process images,
+                                    called a Deep Convolutional GAN (DCGAN). We’ll train the DCGAN to generate cats from
+                                    samples of
+                                    random noise. In the second part, we will implement a more complex GAN architecture
+                                    called CycleGAN,
+                                    which was designed for the task of image-to-image translation.
+                                    We’ll train the CycleGAN to convert between different types of two kinds of cats
+                                    (Grumpy and Russian
+                                    Blue) and apples to oranges.
+                                    <br>
+                                    <br>
+
+                                </p>
+
+                                <h2>Deep Convolutional GAN</h2>
+                                <br>
+                                <p>
+                                    or the first part of this assignment, we will implement a Deep Convolutional GAN
+                                    (DCGAN) as introduced
+                                    by <a href="https://arxiv.org/pdf/1511.06434.pdf%C3" target="'_blanck">Radford et
+                                        al</a>. A DCGAN is
+                                    simply a GAN that uses a convolutional neural network as the discriminator, and a
+                                    network composed of
+                                    transposed convolutions as the generator. To implement the DCGAN, we need to specify
+                                    three things: 1)
+                                    the generator, 2) the discriminator, and 3) the training procedure. We will develop
+                                    each of these three
+                                    components in the following subsections.
+
+                                </p>
+                                <br>
+
+                                <h4>Discriminator</h4>
+
+                                <br>
+                                <p>
+
+                                    The discriminator in this DCGAN is a convolutional neural network that has the
+                                    following architecture:
+                                </p>
+                                <br>
+                                <img src="images/cats//discriminator.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-10'>
+                                <br>
+                                <br>
+
+
+                                <p>
+                                    In each of the convolutional layers shown above, we downsample the spatial dimension
+                                    of the input
+                                    volume by a factor of 2. Given the input-output relation equation and that we use
+                                    kernel size K = 4 and
+                                    stride S =
+                                    2, the padding for each convolution is:
+                                </p>
+                                <br>
+                                <img src="images/cats/formula.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid  col-lg-5 col-md-7 col-10'>
+                                <br>
+                                <img src="images/cats/d_padding.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-lg-6 col-md-8  col-9'>
+
+                                <br>
+                                <br>
+
+                                <p>
+                                    Bellow a summary of the discriminator implemented can be seen. The sizes of the
+                                    outputs of
+                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each
+                                    convolution operation, ReLU activation has been used a except from the last layer,
+                                    the 5th
+                                    Conv2d layer.
+                                </p>
+                                <br>
+
+                                <img src="images/cats/dis_arch.png"
+                                    class=' d-block mx-auto d-block img-fluid col-lg-6 col-md-8 col-10'>
+                                <br>
+                                <p>
+
+                                </p>
+                                <br>
+                                <br>
+                                <h4>Generator</h4>
+
+                                <br>
+
+                                <br>
+                                <img src="images/cats/generator.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-10'>
+                                <br>
+
+
+                                <br>
+
+
+                                <p>
+                                    The generator of the DCGAN consists of a sequence
+                                    of transpose convolutional layers(we will implement upsampling and posterior conv2d)
+                                    that progressively
+                                    upsample the input noise sample to generate a fake image.
+                                    <br><br>
+                                    Before each of the convolutional layers shown above, we upsample the spatial
+                                    dimension of the input
+                                    volume by a factor of 2. Given the input-output relation equation and that we use
+                                    kernel size K = 3 and
+                                    stride S =
+                                    1, the padding for each convolution is:
+                                </p>
+                                <br>
+
+                                <img src="images/cats/g_padding.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-lg-7 col-md-9  col-10'>
+
+
+                                <br>
+
+                                <p>
+                                    Bellow a summary of the generator implemented can be seen. The sizes of the outputs
+                                    of
+                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each
+                                    convolution operation, ReLU activation has been used a except from the last layer
+                                    that used a Tanh
+                                    activation.
+                                </p>
+                                <br>
+
+                                <img src="images/cats/dis_arch.png"
+                                    class=' d-block mx-auto d-block img-fluid col-lg-6 col-md-8 col-10'>
+                                <br>
+
+                                <br>
+                                <br>
+                                <h4>Training the loop</h4>
+
+                                <br>
+
+
+
+                                <p>
+                                    Next, we implemented the training loop for the DCGAN. A DCGAN is simply a GAN with a
+                                    specific type of
+                                    generator and discriminator; thus, we train it in exactly the same way as a standard
+                                    GAN. The
+                                    pseudo-code for the training procedure is shown below.
+                                </p>
+                                <br>
+
+                                <img src="images/cats/gan_algo.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-11'>
+
+                                <br>
+                                <br>
+                                <h4>Results</h4>
+
+                                <br>
+
+                                <p>
+                                    To train the DCGAN we have used basic (normalization) and deluxe data augmentation
+                                    techniques (random
+                                    crop and
+                                    horizontal flips).In the following plots, we
+                                    can see the influence of the data augmentation techniques. One of the main problems
+                                    when training GANs
+                                    is overfitting, this occurs when the data used for trainning is so small that the
+                                    model memorizes it,
+                                    which deteriorates the performance. Therefore, using data augmentation techniques
+                                    increases the number
+                                    of training examples improving the the training.
+                                </p>
+
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/plot_basic.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Losses using basic data augmentation,<br>200 iterations
+                                            </figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/plot_deluxe.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Losses using deluxe data augmentation,<br>200 iterations
+                                            </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>
+                                    To further improve the data efficiency of GANs, we have also applied differentiable
+                                    augmentations
+                                    discussed in this <a href="https://arxiv.org/pdf/2006.10738.pdf"
+                                        target="'_blanck">paper</a>. In the
+                                    plots bellow we can see the influence of this tecnique. The discriminator loss is
+                                    higher this time, as
+                                    it is more difficult to differentiate real images from the fake ones, which also
+                                    makes the
+                                    generator loss to reduce.
+                                </p>
+
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/plot_basic_diff_aug.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Losses using basic data augmentation,<br>200 iterations
+                                            </figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/plot_deluxe_diff_aug.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Losses using deluxe data augmentation,<br>200 iterations
+                                            </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>
+                                    The outputs of training the models for 200 iterations and 6500 iterations are the
+                                    following:
+                                    <br> <br> - For basic data augmentation:
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-000200_basic.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Basic data augmentation, 200 iterations</figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-006300_basic.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Basic data augmentation, 6500 iterations</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br> - For deluxe data augmentation:
+                                <br><br>
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-000200_deelux.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Deluxe data augmentation, 200 iterations</figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-006500_delux.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Deluxe data augmentation, 6300 iterations</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                In the previous images we can see the influence of this data augmentation technique in
+                                the quality of the
+                                output images, even when the number of iterations for training is the same.
+                                <br> <br> - For deluxe data augmentation with differentiable augmentation:
+                                <br><br>
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-000200_delux_diff.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Deluxe data augmentation, 200 iterations</figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+
+                                            <img src="images/cats/sample-006500_delux_diff.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Deluxe data augmentation, 6500 iterations</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                Here we can see how the model crashed when used differentiable augmentation and thee
+                                model doesn't improve:
+                                <img src="images/cats/plot_deluxe_diff_aug_6500.png"
+                                    class=' d-block float-top mx-auto d-block img-fluid col-9'>
+                                <figcaption>Losses using delux and differentiable data augmentations, <br>6500
+                                    iterations</figcaption>
+
+
+                                </p>
+
+                                <h2>CycleGAN</h2>
+                                <br><br>
+
+                                <p>
+                                    In the second part of this assigment, we are going to implement a CycleGAN as
+                                    introduced
+                                    by <a href="https://arxiv.org/pdf/1703.10593.pdf" target="'_blanck">Zhu et al</a>.
+                                    CycleGANs are
+                                    particularly interesting because they allow to use un-paired training data. This
+                                    means that in order
+                                    to train a model to translate images from domain X to domain Y , we do not have to
+                                    have exact
+                                    correspondences
+                                    between individual images in those domains as it is the case for image-to-image
+                                    translation.
+                                </p>
+
+                                <br>
+                                <br>
+                                <h4>Generator</h4>
+
+                                <br>
+                                <br>
+                                <img src="images/cats/cyclegan_generator.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-10'>
+                                <br>
+                                <p>
+
+                                    The generator in the CycleGAN has layers that implement three stages of computation:
+                                    <br><br>
+                                    1) the first stage
+                                    encodes the input via a series of convolutional layers that extract the image
+                                    features;
+                                    <br>2) the second stage then transforms the features by passing them through one or
+                                    more residual
+                                    blocks;
+                                    <br>3) the third
+                                    stage decodes the transformed features using a series of transposed convolutional
+                                    layers, to build an
+                                    output image of the same size as the input.
+                                    <br><br>The residual block used in the transformation stage consists
+                                    of a convolutional layer, where the input is added to the output of the convolution.
+                                    This is done so
+                                    that the characteristics of the output image (e.g., the shapes of objects) do not
+                                    differ too much from
+                                    the input.
+                                    <br><br>
+                                    Bellow a summary of the generator implemented can be seen. The sizes of the outputs
+                                    of
+                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each convolution
+                                    operation, ReLU activation has been used a except from the last layer that used a
+                                    Tanh activation.
+
+                                </p>
+                                <br>
+                                <img src="images/cats/g_cyclegan.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-lg-6 col-md-8 col-10'>
+                                <br>
+                                <br>
+                                <h4>PatchDiscriminator</h4>
+                                <br>
+
+                                <p>
+                                    CycleGAN adopts a patch-based discriminator. Instead of directly classifying an
+                                    image to be real or
+                                    fake, it classifies the patches of the images, allowing CycleGAN to model local
+                                    structures better. To
+                                    achieve this effect, we reduce the spatial outputs to a dimension of 4x4 instead of
+                                    a
+                                    scalar, 1x1, as before.
+                                    <br><br>
+                                    Bellow a summary of the discriminator implemented can be seen. The sizes of the
+                                    outputs of
+                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each
+                                    convolution operation, ReLU activation has been used a except from the last layer.
+
+                                </p>
+
+
+                                <img src="images/cats/d_cyclegan.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-lg-7 col-lg-6 col-md-8 col-10'>
+
+
+
+
+
+
+                                <br>
+                                <br>
+                                <h4>Training the loop</h4>
+
+                                <br>
+
+
+
+                                <p>
+                                    To train the CycleGan we implement the following training procedure:
+                                </p>
+                                <br>
+
+                                <img src="images/cats/cyclegan_train.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-11'>
+
+                                <br><br>
+                                <h4>Cycle Consistency</h4>
+                                <br>
+                                <p>
+                                    The most interesting idea behind CycleGANs (and the one from which they get their
+                                    name) is the idea of
+                                    introducing a cycle consistency loss to constrain the model. The idea is that when
+                                    we translate an image
+                                    from domain X to domain Y, and then translate the generated image back to domain X,
+                                    the result should
+                                    look like the original image that we started with. The cycle consistency component
+                                    of the loss is the
+                                    mean squared error between the input images and their reconstructions obtained by
+                                    passing through both
+                                    generators in sequence (i.e., from domain X to Y via the X->Y generator, and then
+                                    from domain Y back to
+                                    X
+                                    via the Y->X generator). The cycle consistency loss for the Y->X->Y cycle is
+                                    expressed as follows:
+                                </p>
+
+
+                                <img src="images/cats/formula2.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-5 col-8'>
+
+                                <br><br>
+                                <h4>Results</h4>
+                                <br>
+                                <p>
+                                    In the following image we can see the influence of the cycle consistency loss in the
+                                    output results. In
+                                    the first two images the results of training from domain X to Y and viceversa with
+                                    and withouth cycle
+                                    consistency are shown:
+                                    <br><br>
+                                    X -> Y: from Russian Blue to Grumpy
+                                    <br><br>
+                                    <img src="images/cats/sample-001000-X-Y_patch_naive.png"
+                                        class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>Without cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <img src="images/cats/sample-001000-X-Y_cycle.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <br>
+                                Y -> X: from Grumpy to Russian Blue
+                                <br><br>
+                                <img src="images/cats/sample-001000-Y-X_patch_naive.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>Without cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <img src="images/cats/sample-001000-Y-X_cycle.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <br><br>
+
+                                In the previous image we can seee that introducing the cycle consistency loss improves
+                                the results, and
+                                reduces the visual artifacts. Therefore, the second training, with cycle consistency
+                                loss, has been
+                                continued until 10000 iterations. The results can be seen bellow:
+                                <br><br><br>
+
+                                <img src="images/cats/sample-010000-X-Y_patch.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency X -> Y,10000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <br>
+                                <img src="images/cats/sample-010000-Y-X_patch.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency Y -> X,10000 iterations and PatchDiscriminator
+                                </figcaption>
+
+                                <br><br>
+                                In the following experiments, we can compare the previous results, using
+                                PatchDiscriminator, with the
+                                results using the previous DCDiscriminator. We can see that the PatchDiscriminator,
+                                another of thee
+                                differences between DCGAN and CycleGAN improves the results for domain transformation.
+                                <br><br>
+
+                                <img src="images/cats/sample-010000-X-Y_dc.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency X -> Y,10000 iterations and DCDiscriminator
+                                </figcaption>
+                                <br>
+                                <img src="images/cats/sample-010000-X-Y_dc.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency Y -> X,10000 iterations and DCDiscriminator
+                                </figcaption>
+
+                                <br><br>
+                                The same experiments were carried out with the apple/orange dataset, observing the same
+                                results, the cycle
+                                consistency loss as well as using PatchDiscriminator improved the results.
+                                <br><br>
+                                X -> Y: from apples to oranges
+                                <br><br>
+                                <img src="images/cats/sample-001000-X-Y_naive_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>Without cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <img src="images/cats/sample-001000-X-Y_patch_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <br>
+                                Y -> X: from oranges to apples
+                                <br><br>
+                                <img src="images/cats/sample-001000-Y-X_naive_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>Without cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <img src="images/cats/sample-001000-Y-X_patch_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <br><br>
+                                Results after 10000 iterations using PatchDiscriminator:
+                                <br><br>
+
+                                <img src="images/cats/sample-010000-X-Y_patch_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency X -> Y,10000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <br>
+                                <img src="images/cats/sample-010000-Y-X_patch_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency Y -> X,10000 iterations and PatchDiscriminator
+                                </figcaption>
+                                <br>
+                                Results after 10000 iterations using PatchDiscriminator or DCDiscriminator:
+                                <br><br><br>
+
+                                <img src="images/cats/sample-010000-X-Y_dc_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency X -> Y,10000 iterations and DCDiscriminator
+                                </figcaption>
+                                <br>
+                                <img src="images/cats/sample-010000-X-Y_dc_a.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
+                                <figcaption>With cycle consistency Y -> X,10000 iterations and DCDiscriminator
+                                </figcaption>
+                                <br><br>
+                                I think it is very interesting that in the orange dataset, there are a lot of images of
+                                the open fruit,
+                                however, in the apple dataset they are very little. Furthermore, oranges are orange in
+                                the inside, so same
+                                color inside as outside, but apples, are white in the inside. The problem has trouble
+                                learning this an in
+                                the results we can see apples that are red on the inside. Another thing that catched my
+                                atttention, was that
+                                the big mayority of the apples are red, so when the model sees a green apple, it doesn't
+                                convert it into an
+                                orange.
+                                </p>
+                                <br><br>
+                                <h2>Bells & Whistles</h2>
+                                <br><br>
+                                <h4>Spectral normalization</h4>
+                                <br>
+                                <p>
+                                    Applies <a
+                                        href="https://pytorch.org/docs/stable/generated/torch.nn.utils.spectral_norm.html"
+                                        target="'_blanck">spectral normalization</a> to a parameter in the given module.
+
+                                    <br><br>
+                                    <img src="images/cats/formula3.png"
+                                        class='  d-block float-center mx-auto d-block img-fluid col-sm-6 col-10'>
+                                    <br><br>
+                                    Spectral normalization stabilizes the training of discriminators in Generative
+                                    Adversarial Networks
+                                    (GANs) by rescaling the weight tensor with spectral norm σ(sigma) of the weight
+                                    matrix calculated using
+                                    power iteration method.
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-5 p-0 m-0">
+
+                                            <img src="images/cats/sample-006400_spectral.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Results after 6400 training iterations</figcaption>
+                                        </div>
+                                        <div class="col-7 p-0 m-0">
+
+                                            <img src="images/cats/plot-006500_spectral.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Losses using basic data augmentation and spectral normalization
+                                            </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                </p>
+                                <br><br>
+                                <h4>When Kim Kardashian meets GANs</h4>
+                                <br>
+                                <img src="images/cats/gif/kim_deluxe.gif"
+                                    class='  d-block float-center mx-auto d-block img-fluid col-sm-7  col-10'>
+                                <br>
+                                If I was going to create a dataset to train a GAN it couldn't be any other than the
+                                queen of the selfies. To
+                                train this GAN I collected a dataset of 148 images of her intagram:
+                                <br><br>
+                                <img src="images/cats/kim_data.png"
+                                    class='  d-block float-center mx-auto d-block img-fluid  col-12'>
+                                </p>
+
+
+                                <br>
+                                <h4>When Kim Kardashian meets CycleGANs</h4>
+                                <br>
+                                <p>
+                                    I didn't manage to do train a good GAN for Kim K because of the small dataset I
+                                    generated (or maybe because she is so unique and irrepliclable 😜). Also, I
+                                    realized, that as we commented in class, the images should have been better
+                                    preprocessed, for example,
+                                    aligning the face in all the training images.
+                                    <br><br>
+                                    Nevertheless, I got a meme:
+                                    <br><br>
+
+
+                                    <img src="images/cats/kim_cycle.png"
+                                        class='  d-block float-center mx-auto d-block img-fluid  col-11'>
+                                    <br><br>
+                                    If you don't understand the meme, you can take a look at this spanish famous
+                                    <a href="https://www.nytimes.com/2012/08/24/world/europe/botched-restoration-of-ecce-homo-fresco-shocks-spain.html"
+                                        target="'_blanck">Ecce Homo Fresco restoration</a>.
+
+                                </p>
+
+                            </div> <!-- proj 3-->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Proj#2: Gradient domain fusion
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- proj 2-->
+                            <div>
+
+
+                                <br> <br>
+                                <div class=" row container m-0 p-0 col-12 align-self-center ">
+                                    <div class="col-1 align-self-center"></div>
+                                    <div class="row col-10 align-self-center m-0 p-0 ">
+                                        <div class="col-4  m-0 p-0">
+
+                                            <img src="images/gradient/data/target_01.jpg"
+                                                class='bg-danger  d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption class="text-center">Original image</figcaption>
+                                        </div>
+                                        <div class="col-4  m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_bear.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption class="text-center">Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_bear.jpg"
+                                                class='  d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption class="text-center">Poisson blend</figcaption>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br>
+
+
+                                <p>
+                                    In this project, we will exprole gradient-domain processing, a simple technique
+                                    with
+                                    a
+                                    broad set
+                                    of applications
+                                    including blending, tone-mapping, and non-photorealistic rendering. For this
+                                    assigment,
+                                    we will
+                                    focus
+                                    on 'Poisson blending', 'mixed gradients' and 'color2gray'.
+                                    <br><br>
+                                    The primary goal of this assignment is to seamlessly blend an object or texture
+                                    from
+                                    a
+                                    source image
+                                    into
+                                    a target image. The method presented above is called “Poisson blending” and uses
+                                    the
+                                    gradients of
+                                    both
+                                    of the images that we want to combine to make transition as smooth as possible.
+                                    This
+                                    was
+                                    introduced
+                                    by
+                                    Perez et al. in <a
+                                        href="http://cs.brown.edu/courses/csci1950-g/asgn/proj2/resources/PoissonImageEditing.pdf"
+                                        target="'_blanck">this</a> 2003 paper.
+                                    <br><br>
+                                    In the previous image, in the left, we have the target image, in which we want
+                                    to
+                                    add
+                                    another image,
+                                    what we will
+                                    call, the source image, in this case, a bear. Next to it, we have the naive
+                                    blend, a
+                                    simple
+                                    copy and paste using a mask. This however, doesn't give good result, therefore,
+                                    on
+                                    the
+                                    right,
+                                    Poissong
+                                    blending has been applied.
+                                </p>
+
+                                <br>
+                                <h2>Process </h2>
+
+                                <br><br>
+
+
+                                <h3>Gradients</h3>
+                                <br>
+                                <p>
+                                    To understand Poisson, blending, first we need to understand what a gradient is.
+                                    As
+                                    in
+                                    calculus, a
+                                    gradient is the derivative of a function, in this case, the derivative of each
+                                    pixel.
+                                    But how do we
+                                    calculate this? To do so, we have to start by thiking what a derivative is: the
+                                    rate
+                                    of
+                                    change of a
+                                    function in a given direction. In the case of pixels, this is calculated by
+                                    comparing the different values of the pixels in a given direction. Let's imagine
+                                    the
+                                    following 3x3
+                                    image with values for the each pixel of [[0, 1, 2],[3, 4, 5],[6, 7, 8]]. The
+                                    derivatives
+                                    of the p4
+                                    pixel
+                                    will
+                                    be defined by its 4 neighbours: p3 to the left, p5 to the
+                                    right, p0 going up, and p7 going down. So the derivatives can be written as
+                                    follow:
+                                </p>
+                                <br>
+
+                                <div class="container col-md-10 col-12 align-self-center ">
+                                    <div class="row align-self-center">
+                                        <div class="col-sm-3 col-0"> </div>
+                                        <div class="col-sm-3 col-6">
+                                            <img src="images/gradient/data/image.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                        </div>
+                                        <div class='col-sm-4 col-6 d-block mx-auto d-block img-fluid float-center'>
+                                            <p>
+                                                <i>
+                                                    <br>
+                                                    ← p3-p4=3-4=-1 <br>
+                                                    → p5-p4=5-4=+1<br>
+                                                    ↑ p1-p4=1-4=-3<br>
+                                                    ↓ p7-p4=7-4=+3<br>
+                                                </i>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2 col-0"> </div>
+
+                                    </div>
+                                </div>
+
+                                <br><br>
+                                <h3>Toy problem</h3>
+                                <br>
+                                <p>
+                                    Before implementing the Poisson blending algorithm, we are asked to solve a toy
+                                    problem.
+                                    In this
+                                    example
+                                    we’ll compute the x and y gradients from an image s, then use all the gradients,
+                                    plus
+                                    one pixel
+                                    intensity, to reconstruct an image v. If the implementation is correct, the
+                                    output
+                                    should recover
+                                    the
+                                    input image. Let's denote the intensity of the source image at (x, y) as s(x,y)
+                                    and the values of the image to solve for as v(x,y). For each pixel, then, we
+                                    have
+                                    two
+                                    objectives:
+                                <ol>
+                                    <li> Minimize <b>((v(x+1,y)−v(x,y))−(s(x+1,y)−s(x,y)))<sup>2</sup></b>, so the
+                                        x-gradients of v
+                                        should
+                                        closely match the x-gradients of s.</li>
+                                    <br>
+                                    <li>Minimize <b>((v(x,y+1)−v(x,y))−(s(x,y+1)−s(x,y)))<sup>2</sup></b>, so the
+                                        y-gradients of v
+                                        should
+                                        closely match the
+                                        y-gradients of s.</li>
+
+
+
+                                </ol>
+
+                                Apart from these twho objectives, we also have to minimize
+                                <b>(v(1,1)−s(1,1))<sup>2</sup></b> as the top
+                                left corners of the two images should be the same color.
+                                <br><br>
+                                The result after minimizing the objectives:
+                                <br> <br>
+                                <img src="images/gradient/output/toy.png"
+                                    class='float-center mx-auto d-block img-fluid col-lg-6 col-sm-8 col-10'>
+                                </p>
+                                <h3>Poisson blending</h3>
+                                <br>
+
+                                <p>
+                                    In order to make a seamless transition between any two images we need to think
+                                    about
+                                    the
+                                    gradients
+                                    of
+                                    both of the images rather than about
+                                    the overall intensity. This problem consists in finding the right values for the
+                                    target
+                                    pixels that
+                                    maximally preserve the gradient of the source region, without changing any of
+                                    the
+                                    background pixels.
+                                    Note that we are making a deliberate decision to ignore the overall intensity,
+                                    so
+                                    somo
+                                    color change
+                                    could
+                                    occur, as seen before, a brown bear could turn
+                                    black, but it would still look like a bear.
+                                </p>
+                                <br>
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+
+                                            <img src="images/gradient/data/snow.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0 ">
+                                            <img src="images/gradient/data/snow_source.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0 ">
+                                            <img src="images/gradient/data/snow_mask2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row  align-self-center p-0 m-0 ">
+
+                                        <div class="col-6 p-0 m-0">
+                                            <img src="images/gradient/output/NaiveBled_snow2.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <img src="images/gradient/output/PoissonBlend_snow_.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <p>
+                                    We can formulate our objective as a least squares problem. Given the pixel
+                                    intensities
+                                    of the source
+                                    image “s” and of the target image “t”, we want to solve for new intensity values
+                                    “v”
+                                    within the
+                                    source
+                                    region “S”:
+                                    <br><br>
+
+                                    <img src="images/gradient/formula.png"
+                                        class='float-center mx-auto d-block img-fluid col-lg-8   col-12'>
+
+                                    <br>
+                                    In the previous formula, we can see that we are summating the pixels of the
+                                    region
+                                    “S”.
+                                    This region
+                                    represents the points of the source image that we want to copy in the target
+                                    image.
+                                    For
+                                    this task,
+                                    we
+                                    were given the following <a
+                                        href="https://github.com/nikhilushinde/cs194-26_proj3_2.2"
+                                        target="_blank">code</a>, to create the mask and align it with both the
+                                    source
+                                    and
+                                    target
+                                    images.
+                                    In the formula,each “i” is a pixel in the source region “S”, and each “j” is a
+                                    4-neighbor of “i”.
+                                    Each
+                                    summation
+                                    guides the gradient values to match those of the source region. In the first
+                                    summation,
+                                    the gradient
+                                    is
+                                    over two variable pixels; in the second, one pixel is variable and one is in the
+                                    fixed
+                                    target
+                                    region. In
+                                    the first part, we set the gradients of “v” inside "S" while on the second part,
+                                    we
+                                    set
+                                    the
+                                    gradients
+                                    around the boundary of “S".
+                                    <br><br>
+                                    To solve for v, we have used the scipy.sparse.linalg.lsqr function. This
+                                    function
+                                    minimizes our
+                                    least
+                                    squares problem with the form of (Av-b)<sup>2</sup>. It returns the v values
+                                    that
+                                    minimize
+                                    the gradients and that are used to generate the output image.
+                                </p>
+                                <br>
+                                <h3>Results</h3>
+                                <br>
+                                <h5>Kiki travels</h5>
+                                <br>
+                                <p>
+                                    For this example I have tried to take Kiki, my cat, around so she can explore
+                                    new
+                                    places. I have
+                                    used
+                                    the Poisson blending algorithm to take her with me to CMU on an snowy day. I
+                                    have
+                                    also
+                                    taked her to
+                                    the
+                                    beach, a place I could also take myself too...
+                                    <br><br> Kiki in CMU:
+                                </p>
+                                <br>
+                                <div class="container  col-12 align-self-center">
+                                    <div class="row  align-self-center ">
+                                        <div class="col-4 p-0 m-0 ">
+
+                                            <img src="images/gradient/data/kikiCMU.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/gradient/data/kikiCMU_source.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/gradient/data/kikiBEACH_mask.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row  align-self-center ">
+
+                                        <div class="col-6 p-0 m-0">
+                                            <img src="images/gradient/output/NaiveBlend_kikiCMU.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 p-0 m-0 ">
+                                            <img src="images/gradient/output/PoissonBlend_kikiCMU.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+
+                                </div>
+                                <p>
+
+                                    <br> Kiki in the beach:
+                                </p>
+                                <br>
+                                <div class="container  col-12 m-0 p-0 align-self-center">
+                                    <div class="row  align-self-center ">
+                                        <div class="col-4 m-0 p-0">
+
+                                            <img src="images/gradient/data/kikiBEACH_bright.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/kikiBEACH_source.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/kikiCMU_mask.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row  align-self-center ">
+
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_kikibeachBrigth.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_kikiBeach_bright.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>
+                                    I am pretty surprised with the results! However, some artifacts can be seen in
+                                    the
+                                    image
+                                    of Kiki at
+                                    CMU.
+                                    Between her ears the fence of the tenis court disappears. On the beach case, the
+                                    output
+                                    image makes
+                                    Kiki
+                                    too dark due to the gradients. Furthermore, the blending is not as good as in
+                                    the
+                                    previous image.
+                                    This
+                                    is because the background colors matched better in the previous example.
+                                </p>
+                                <br>
+                                <h5>Naruto's Deidara</h5>
+                                <br>
+                                <p>
+                                    When I was young I used to read Naruto's comics. Back then I was a fan of one of
+                                    the
+                                    characters,
+                                    Deidara, that had mouths in her hands:
+                                    <br><br>
+
+                                    <img src="images/gradient/data/deidara.jpg"
+                                        class='float-center mx-auto d-block img-fluid col-lg-3 col-sm-4 col-6'>
+
+                                    <br><br>
+                                    Using this algorithm I have been able to be like her, at least virtually.
+
+                                </p>
+                                <br>
+                                <div class="container  col-12 align-self-center">
+                                    <div class="row  align-self-center ">
+                                        <div class="col-4 m-0 p-0">
+
+                                            <img src="images/gradient/data/mouth.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0 ">
+                                            <img src="images/gradient/data/mouth3_source.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/mouth_mask.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row  align-self-center ">
+                                        <div class="col-0 "></div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_mouth3.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_mouth3.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <h5>Trying jewelry</h5>
+                                <br>
+                                <p>
+                                    I really enjoy designing rings or other kind of wearables, so I thougt that this
+                                    could
+                                    be a great
+                                    opportunity to inquire the possibilities of poisson blending algorithm for
+                                    trying
+                                    jewelry.
+
+                                </p>
+                                <br>
+                                <div class="container m-0 p-0  col-12 align-self-center">
+                                    <div class="row  m-0 p-0 align-self-center ">
+                                        <div class="col-4 m-0 p-0">
+
+                                            <img src="images/gradient/data/ring.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/ring_source.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4  m-0 p-0">
+                                            <img src="images/gradient/data/ring_mask.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row m-0 p-0 align-self-center ">
+                                        <div class="col-0 "></div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_ring.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_ring_noNeg.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+
+                                </div>
+                                <p>
+
+                                    <br> I think this is a great tool to create rapid mockup images whithout
+                                    espending a
+                                    lot
+                                    of time on
+                                    making a perfect mask around the ring. In this example we can also see what we
+                                    mentioned
+                                    before,
+                                    that
+                                    this algorithm changes the color of the objects. Actually, the color of the
+                                    silver
+                                    ring
+                                    dissapears
+                                    as it
+                                    fuses with the color of the skin.
+                                    <br><br>After seeing this results, I wondered how this algorithm would
+                                    work with a more complex shape... so I tried it!
+                                </p>
+                                <br>
+                                <div class="container  m-0 p-0 col-12 align-self-center">
+                                    <div class="row m-0 p-0 align-self-center ">
+                                        <div class="col-4 m-0 p-0">
+
+                                            <img src="images/gradient/data/hand2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Target image (t)</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/hand2_source.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Source image (s) </figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/data/hand2_mask.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Mask (region S)</figcaption>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row m-0 p-0 align-self-center ">
+
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_hand2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-6 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_hand2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-2 "></div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>
+                                    This time the results are not as surprising as before. Mainly because I lost all
+                                    my
+                                    hair
+                                    in the
+                                    procces due to the blending. To solve this problem, I applied the mixed
+                                    gradients
+                                    algorithm in the
+                                    bells
+                                    and whistles of this assigment.
+                                </p>
+                                <br>
+
+
+
+                                <br><br>
+                                <h2>Bells and Whistles</h2>
+                                <br><br>
+                                <h3>Mixed gradients</h3>
+                                <br>
+                                <p>
+
+                                    To solve the above seen problem, in this section we will implement the mixed
+                                    gradients
+                                    algorithm for
+                                    images where transparency important. In this algorithm we follow the same steps
+                                    as
+                                    in
+                                    Poisson
+                                    blending,
+                                    but
+                                    instead of using the gradients in the source image, we use the gradient with
+                                    larger
+                                    magnitude in
+                                    either
+                                    source or target image as the guide:
+                                    <br><br>
+                                    <img src="images/gradient/formula2.png"
+                                        class='float-center mx-auto d-block img-fluid col-lg-8   col-12'>
+                                    <br><br>
+                                    The results of applying this algorithm to the previous image
+                                </p>
+                                <br>
+                                <div class="container col-12 align-self-center">
+                                    <div class="row  align-self-center ">
+
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_hand2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0 ">
+                                            <img src="images/gradient/output/PoissonBlend_hand2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/MixedBlend_han2.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Mixed gradients</figcaption>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p>
+                                    Mixed gradients works very well in this example. Nevertheless, this algorithm
+                                    makes
+                                    the
+                                    source image
+                                    too
+                                    transparent. This is something we need to have into account when deciding which
+                                    algorithm we are
+                                    going
+                                    to use. For example in the following images, we can see the results of applying
+                                    mixed
+                                    gradients to
+                                    the
+                                    Kiki goes to the beach image.
+                                </p>
+                                <br>
+                                <div class="container col-12 align-self-center">
+                                    <div class="row  align-self-center ">
+
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/NaiveBlend_kikibeachBrigth.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Naive blend</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/PoissonBlend_kikiBeach_bright.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Poisson blend</figcaption>
+                                        </div>
+                                        <div class="col-4 m-0 p-0">
+                                            <img src="images/gradient/output/MixedBlend_kikibeach_bright.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid  col-11'>
+                                            <figcaption>Mixed gradients</figcaption>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <p>
+                                    Although both of the images are seamlessly blended, when applying this
+                                    algorithm,
+                                    the
+                                    source image
+                                    may
+                                    seem to became more transparent, is we zoom in, we can see that the beach can be
+                                    seen
+                                    thorugh Kiki's
+                                    fur. This is because inside the region S, we now also consider the gradients of
+                                    the
+                                    target image.
+                                </p>
+                                <br>
+                                <h3>Color2gray</h3>
+                                <br>
+                                <p>
+
+                                    For this part of the assigment, we will see another application of these
+                                    blending
+                                    algorithms,
+                                    color2gray
+                                    transformation. When converting a color image to grayscale (e.g., when printing
+                                    to a
+                                    laser printer),
+                                    we
+                                    lose the important contrast information, making the image difficult to
+                                    understand.
+                                    To
+                                    see this, we
+                                    will
+                                    use the images used for testing color blindness. As it can be seen bellow, when
+                                    this
+                                    images are
+                                    converted into grayscale, no longer show the numbers. To solve this, we are
+                                    going to
+                                    use
+                                    this
+                                    blending
+                                    techniques to create a gray image that has similar intensity to the rgb2gray
+                                    output
+                                    but
+                                    mantaining
+                                    the
+                                    contrast of the original RGB image.
+                                    <br><br>
+                                    To do this, we first convert the RGB image into HSV(Hue Saturation Value) space.
+                                    In
+                                    the
+                                    image bellow
+                                    we
+                                    can see the example image as an RGB image on the left, and next to it the
+                                    correspondent
+                                    images of
+                                    each
+                                    of the HSV channels.
+
+                                    <br><br>
+                                    <img src="images/gradient/data/hsv.png"
+                                        class='float-center mx-auto d-block img-fluid    col-12'>
+                                    <br><br>
+                                    In the HSV space, we can examine the color of an image, the intensity of that
+                                    image
+                                    and
+                                    the
+                                    brightness.
+                                    The image representing the brightness, is similar to the rgb2version. Therefore,
+                                    to
+                                    create our
+                                    color2gray version, we will use the S and V channels of the image and approach
+                                    it as
+                                    a
+                                    mixed
+                                    gradients
+                                    problem. We will use the white pixels of the original image to generate a mask.
+                                    The
+                                    results of this
+                                    color2gray:
+
+                                    <br><br>
+                                    <img src="images/gradient/output/35.png"
+                                        class='float-center mx-auto d-block img-fluid    col-12'>
+                                    <img src="images/gradient/output/8.png"
+                                        class='float-center mx-auto d-block img-fluid   col-12'>
+                                    <br>
+                                    <img src="images/gradient/output/5.png"
+                                        class='float-center mx-auto d-block img-fluid   col-12'>
+
+                                    <br><br>
+
+                                </p>
+                                <br>
+
+
+
+
+
+
+
+
+                            </div> <!-- proj 2-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Proj#1: Colorizing the Prokudin-Gorskii photo collection
+
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- proj 1-->
+                            <div>
+
+                                <br><br>
+                                <p>
+                                    Sergey Mikhaylovich Prokudin-Gorsky was a chemist and photographer of the Russian
+                                    Empire. He is best
+                                    known
+                                    for his pioneering work in color photography and his effort to document early
+                                    20th-century Russia. In
+                                    imitation to the way the human eye senses color, in his pothograps the visible
+                                    spectrum of colors was
+                                    divided into three channels of information by capturing it in the form of three
+                                    black-and-white
+                                    photographs,
+                                    one taken through a red filter, one through a green filter, and one through a blue
+                                    filter.
+                                </p>
+
+                                <div class="row">
+                                    <img src="images/colorizing/graph1.png"
+                                        class='col-sm-10 d-block float-top mx-auto d-block img-fluid col-12'>
+                                </div>
+                                <br>
+
+                                <p>
+                                    Those original negative images (available in the Library of Congress) are going to
+                                    be used in this
+                                    assignment to compose the color photographs. Due to the way the images were captured
+                                    using three
+                                    different
+                                    cameras, as it can be seen in the image above, the negatives are not aligned.
+                                    Therefore, to generate the
+                                    RGB
+                                    images, these negatives first need to be preprocessed.
+                                </p>
+                                <br>
+                                <h2>Proccees </h2>
+
+                                <br>
+
+                                <div class="row">
+                                    <img src="images/colorizing/gif.gif"
+                                        class='col-sm-10 d-block float-top mx-auto d-block img-fluid col-12'>
+                                </div>
+
+                                <p>
+                                    To generate the final image, we need to divide the initial image into red, green,
+                                    and blue channels.
+                                    Actually, the original glass negatives are ordered in blue, green, and red order
+                                    from top to bottom
+                                    Then, as
+                                    we can see in the gif image, we have to find the correct alignment of the three
+                                    taking one of them as
+                                    the
+                                    base, in our case the blue channel. Once the alignment is found, we can combine the
+                                    three channels.
+                                </p>
+                                <br><br>
+                                <h3>Search Methods</h3>
+                                <br>
+                                <p>
+                                    As matching criteria, two different metrics have been considered, the Sum of the
+                                    Square Differences
+                                    (SSD) and the normalized Cross-Correlation (NCC):
+                                    <br><br>
+
+                                    The Sum of Squared Differences is calculated based on the following equation,
+                                    <br><br><br>
+                                    <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Clarge%20SSD%3D%5Csum_%7Bw%2Ch%7D%20%5Cleft%20%28%20F_%7Bw%2Ch%7D%20-%20G_%7Bw%2Ch%7D%20%5Cright%20%29%5E2"
+                                        class='float-center mx-auto d-block img-fluid col-lg-3 col-sm-5 col-7'>
+                                    <br>
+                                    where <i>F</i> and <i>G</i> are both of the arrays we are comparing and <i>h,w</i>
+                                    the corresponding
+                                    pixels at a given height and width. The best alignment will be the one with the
+                                    lower NCC value, this is
+                                    the argmax of the previous equation.
+                                    <br><br>
+
+                                    The Normalized Cross-Correlation is calculated based on the following equation where
+                                    as the name
+                                    suggests,both of the arrays are first normalized
+                                    <br><br><br>
+                                    <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Clarge%20NCC%3D%5Cfrac%7B%5Csum%20_%7Bw%2Ch%7D%28F_%7Bw%2Ch%7D-%5Cmu%20F_%7Bw%2Ch%7D%29%28G_%7Bw%2Ch%7D-%5Cmu%20G_%7Bw%2Ch%7D%29%7D%7B%5Csqrt%7B%5Csum%20_%7Bw%2Ch%7D%28F_%7Bw%2Ch%7D-%5Cmu%20F_%7Bw%2Ch%7D%29%5E2%7D%5Csqrt%7B%5Csum%20_%7Bw%2Ch%7D%28%20G_%7Bw%2Ch%7D-%5Cmu%20G_%7Bw%2Ch%7D%29%5E2%7D%7D"
+                                        class='float-center mx-auto d-block img-fluid col-lg-6 col-sm-8 col-10'>
+                                    <br>
+                                    where <i>​​&mu;F</i> and <i>​​&mu;G</i> are the average of <i>F</i> and
+                                    <i>G</i> respectively. The bestalignment will be the one with the highest value
+                                </p>
+                                <br><br>
+                                <h3>Image Pyramid</h3>
+                                <br>
+                                <p>
+                                    For higher dimension images, the previous brute force approach is not feasible, as
+                                    the number of
+                                    possible alignment combinations increases, which is translated in a higher
+                                    computation time. For
+                                    those images, the pyramid algorithm is used. This algorithm consists in creating a
+                                    multi-scale
+                                    representation of the image. On each level the image is reduced by half, to do so,
+                                    previous two the
+                                    downsampling, a Gaussian filter is applied to prevent wrong aliasing in the process.
+                                    In my case, I
+                                    have downsampled the images until reached a dimension similar to the cathedral
+                                    image, where we have
+                                    seen that the initial search on a 15x15 grid is feasible.
+
+                                    The search for the correct alignment is started with this smaller dimension of the
+                                    image and then is
+                                    translated to higher dimensions. Every time we look for the correct alignment on a
+                                    higher dimension
+                                    image, the previous displacement is taken into account and a new 3x3 displacement
+                                    grid is
+                                    considered.
+                                </p>
+                                <br><br>
+                                <h2>Bells and Whistles</h2>
+                                <br><br>
+                                <h3>Automatic cropping</h3>
+                                <br>
+                                <p>
+
+                                    Due to the alignment process, we can see that the borders of the resulting
+                                    photographs have strange
+                                    colors due to the three channels displacement and the black and white borders of the
+                                    original glass
+                                    negatives. To find those borders a Sobel filter has been applied both vertically and
+                                    horizontally.
+                                    The absolute values of the outputs have been considered and then combined vertically
+                                    and
+                                    horizontally to find the respective borders.
+                                </p>
+                                <div class="container col-lg-10 col-12 ">
+                                    <img src="images/colorizing/emir.jpg"
+                                        class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                    <figcaption>Displacement vectors. G:(48, 24) R:(102, 42)<br> Crops: (126, 118, 222,
+                                        317)</figcaption>
+
+                                </div>
+                                <br>
+                                <br><br>
+                                <h3>Gradient for the alignment</h3>
+                                <br>
+                                <p>
+                                    Some of the images, such as the emir or the village images, may be more difficult to
+                                    align. This is
+                                    because our alignment metric is based on the pixel values of the three images,
+                                    however, this may not
+                                    be a good approach as the pixel values may vary a lot in the different channels, as
+                                    it is the case
+                                    of the emir’s clothing, that is blue, so it will have higher pixel values in that
+                                    channel but not in
+                                    the others. In that case, we can use the same search metric but instead of using the
+                                    pixel values,
+                                    we could use other image features, as it can be the gradient to find the best
+                                    alignment.
+                                </p>
+                                <br>
+                                <div class="container  col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center">
+
+                                            <img src="images/colorizing/village_comparing_NCC.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors (Using pixel metric). <br>G:(65, 10)
+                                                R:(136, -4)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/village_comparing_gradV.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors (Using Sobel filter). <br>G:(64, 11)
+                                                R:(137, 22)</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <h3>Automatic contrast</h3>
+                                <br>
+                                <p>
+                                    Sigmoid function has been used to apply automatic contrast to the image and improve
+                                    the perception
+                                    of it.
+                                </p>
+                                <br>
+                                <div class="container  col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center ">
+
+                                            <img src="images/colorizing/three_generations_level0_c.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors G:(54, 12) R:(110, 10)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/three_generations_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors G:(54, 12) R:(110, 10)<br>Sigmoid: alpha=6
+                                                betha=2.5</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <h2>Results</h2>
+                                <br>
+                                <p>
+                                    The final alignment results of our methods on all the input images can be seen
+                                    below.
+                                </p>
+                                <br>
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center ">
+
+                                            <img src="images/colorizing/three_generations_level0_c_edited.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(54, 12) R:(110, 10)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/train_level0.png"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(42,1) R.(87, 30) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container  col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center">
+
+                                            <img src="images/colorizing/self_portrait_level0_c.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(79,29) R.(176,36)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/turkmen_level0_c_editedDark.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(56,19) R.(114, 26) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center ">
+
+                                            <img src="images/colorizing/lady_level0_c_edited.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(54,2) R.(113,1)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/harvesters_level0.jpg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(60,16) R.(123,12)</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--row-->
+                                <div class="container  col-12 ">
+                                    <div class="row p-0 m-0 ">
+
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/icon_level0.jpg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(41,17) R:(89,23) </figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/emir_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(48, 24) R:(102, 42) </figcaption>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+
+
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/door_level0_c.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(49,23) R.(106, 39) </figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/women_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(-17, 10) R.(10,17) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container  col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/shop_level0_c_editedlight.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(77,43) R.(161, 76) </figcaption>
+                                        </div>
+                                        <div class="col-md-5 ">
+
+                                            <img src="images/colorizing/group_level0_c.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(82,67,10) R:(145, -5)</figcaption>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+
+
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/forest_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(52,-23) R.(131, 17) </figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/man_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(30,10) R.(10,17) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+
+
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/entrance_level0_c_edited.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(69,20) R.(146,37) </figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/church_level0_c.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(20,24) R.(31,30)) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <div class="container col-12 ">
+                                    <div class="row p-0 m-0 ">
+                                        <div class="col-md-5 align-self-center">
+
+                                            <img src="images/colorizing/carpet_level0_c.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(82,0) R:(161,-10)</figcaption>
+                                        </div>
+                                        <div class="col-md-5 align-self-center">
+                                            <img src="images/colorizing/village_level0_c.jpeg"
+                                                class='float-center mx-auto d-block img-fluid col-12'>
+                                            <figcaption>Displacement vectors. G:(64,11) R:(137,22) </figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- proj 1-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="  col-12">
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+
+                <br><br><br><br>
+                <p class=footer>©Tomas Cabezon Pedroso, 2021</p>
+            </div>
+
+
+
+
+        </div> <!-- end content -->
+    </div> <!-- end page -->
+
+</body> <!-- end body -->
+
+</html>
