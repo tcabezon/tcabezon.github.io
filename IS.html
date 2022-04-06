@@ -122,10 +122,11 @@
 
 <body>
     <!-- 'Back to Top' button-->
-    <button style="display: none; position: fixed; bottom: 20px; right: 20px;cursor: pointer;" onclick="topFunction()" id="topBtn" title="Back to top" type="button" class="btn btn-dark"> Back to top</button>
+    <button style="display: none; position: fixed; bottom: 20px; right: 20px;cursor: pointer;" onclick="topFunction()"
+        id="topBtn" title="Back to top" type="button" class="btn btn-dark"> Back to top</button>
     <script>
-      // When user scrolls down halfway, show button
-      window.onscroll = function() {scrollFunction()};
+        // When user scrolls down halfway, show button
+        window.onscroll = function () { scrollFunction() };
     </script>
     <div id="page">
         <!-- HEADER -->
@@ -161,6 +162,511 @@
 
             <div class="accordion accordion-flush">
                 <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Proj#4: Neural Style Transfer
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- proj 4-->
+                            <div>
+
+                                <br><br>
+
+                                <p>
+                                    In this project, we will explore neural style transfer which resembles specific
+                                    content
+                                    in a certain
+                                    artistic style. For example, generate cat images in Ukiyo-e style. The algorithm
+                                    takes
+                                    in a content
+                                    image, a style image, and another input image. The input image is optimized to match
+                                    the
+                                    previous
+                                    two target images in content and style distance space.
+                                    <br><br>
+                                    In the first part of the assignment, we will start from random noise and optimize it
+                                    in
+                                    content
+                                    space. It will help us get familiar with the general idea of optimizing pixels with
+                                    respect to
+                                    certain
+                                    losses. In the second part of the assignment, you will ignore content for a while
+                                    and
+                                    only optimize
+                                    to generate textures. This builds some intuitive connection between style-space
+                                    distance
+                                    and gram
+                                    matrix. Lastly, we combine all of these pieces to perform neural style transfer.
+                                    <br><br>
+                                    This project is based in two articles by Gatys et al. <a target="_blank"
+                                        href="https://arxiv.org/pdf/1505.07376.pdf">Texture Synthesis Using
+                                        Convolutional
+                                        Neural
+                                        Networks</a> and <a target="_blank"
+                                        href="https://arxiv.org/pdf/1508.06576.pdf">A
+                                        Neural
+                                        Algorithm of Artistic Style</a>. The oficial Pytorch tutorial can be found <a
+                                        target="_blank"
+                                        href="https://pytorch.org/tutorials/advanced/neural_style_tutorial.html">here</a>.
+
+                                </p>
+                                <br><br>
+                                <h2>Content Reconstruction</h2>
+                                <br><br>
+                                <p>
+                                    For the first part of the assignment, you will implement content-space loss and
+                                    optimize
+                                    a random
+                                    noise with respect to the content loss only.
+                                    <br><br>
+                                    <b>Content Loss:</b> The content loss is a metric function that measures the content
+                                    distance
+                                    between two
+                                    images at a certain individual layer. Denote the Lth-layer feature of input image X
+                                    as
+                                    f<sub>X</sub><sup>L</sup>and that
+                                    of target content image as f<sub>C</sub><sup>L</sup>. The content loss is defined as
+                                    squared
+                                    L2-distance of these two
+                                    features:
+                                    <br><br>
+                                    <img class='d-block float-center mx-auto d-block img-fluid col-5 col-md-3 col-lg-2'
+                                        id="equationview" name="equationview"
+                                        src="https://latex.codecogs.com/gif.latex?%5Cdpi%7B300%7D%20L%3D%5Cfrac%7B1%7D%7B2%7D%5Csum%28f_X%5EL-f_C%5EL%29%5E%7B2%7D">
+                                    <br>
+                                    To extract the feature, a VGG-19 net pre-trained on ImageNet is used. The
+                                    pre-trained
+                                    VGG-19 net
+                                    consists of 5 blocks (conv1-conv5) (with a total of 15 conv layers) and each block
+                                    serves as a
+                                    feature extractor at the different abstract levels. In the following images the
+                                    influence of the
+                                    layer election can be seen, higher layers
+                                    capture content better than lower layers. Actually, from conv_1 to conv_3 there is
+                                    barely
+                                    difference, however, on higher layers, for example with conv_11, the content of the
+                                    image can be
+                                    barely seen, and the image is mainly noise.
+                                    <br><br>
+                                </p>
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/content/dancing.jpg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Original</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/conv_3.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_3</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/conv_5.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_5</figcaption>
+                                        </div>
+                                    </div>
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/conv_7.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_7</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/conv_9.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_9</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/conv_11.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_11</figcaption>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p>
+                                    <br><br>
+                                    Conv_5 layer, my favorite, will be used to reconstruct other images from an input
+                                    noise:
+                                    <br><br><br>
+                                </p>
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/content/cr1.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Original image</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/noise3.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>input_noise</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/noise3_conv5.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_5</figcaption>
+                                        </div>
+                                    </div>
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/content/cr2.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Original image</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/noise_4.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>input_noise</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/noise4_conv5.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_5</figcaption>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <h2>Texture Synthesis</h2>
+                                <br><br>
+                                <p>
+                                    Now we will implement style-space loss.
+
+                                    <b>Style loss:</b> How do we measure the distance of the styles of two images? In
+                                    the
+                                    course, we
+                                    discussed
+                                    that the Gram matrix is used as a style measurement. Gram matrix is the correlation
+                                    of
+                                    two
+                                    vectors
+                                    on every dimension. Specifically, denote the k-th dimension of the Lth-layer feature
+                                    of
+                                    an image
+                                    as
+                                    f<sup>L</sup><sub>k</sub> in the shape of (N,K,H∗W). Then the gram matrix is
+                                    <br><br>
+                                    <img class='d-block float-center mx-auto d-block img-fluid col-4 col-md-2 col-lg-2'
+                                        id="equationview" name="equationview"
+                                        src="https://latex.codecogs.com/gif.latex?%5Cdpi%7B300%7D%20G%3Df_%7Bk%7D%5E%7BL%7D%5Cleft%28f_%7Bk%7D%5E%7BL%7D%5Cright%29%5E%7BT%7D">
+                                    <br>
+
+                                    in the shape of (N, K, K).
+                                    The idea is that two of the gram matrix of our optimized and predicted feature
+                                    should be
+                                    as
+                                    close as possible. In the following images we can see the influence of the different
+                                    style
+                                    layers selected to generate the texture. Lower layers mantain the color better,
+                                    while
+                                    deeper
+                                    layer don't mantain them and show more a noisy color. However, deeper layers mantain
+                                    some
+                                    elements, for example, in the bottom left, some eyes can be seen in the texture
+                                    image.
+
+                                    <br><br>
+                                </p>
+
+                                <div class="container col-12 align-self-center p-0 m-0">
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/style/cr1.jpeg"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>Original</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_1.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_1</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_1_2_3.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_1 conv_2 conv_3</figcaption>
+                                        </div>
+                                    </div>
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_1_2_3_4_5.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_1 to conv_5</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_1_2_3_4_5_6_7.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_1 to conv_7</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_5_6_7.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_5 conv_6 conv_7</figcaption>
+                                        </div>
+
+                                    </div>
+                                    <div class="row  align-self-center p-0 m-0 ">
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_1-10.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_1 to conv_10</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_7-10.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_7 to conv_10</figcaption>
+                                        </div>
+                                        <div class="col-4 p-0 m-0">
+                                            <img src="images/neuralStyle/output/sty_conv_10-13.png"
+                                                class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                            <figcaption>conv_10 to conv_13</figcaption>
+                                        </div>
+                                    </div>
+                                    <p>
+
+
+                                        <br><br>
+                                        The results using the layers from conv_1 to conv_7 are the favorites, so this
+                                        arrangement will
+                                        be used to generate textures from noise.
+                                        <br><br>
+                                    </p>
+                                    <div class="container col-12 align-self-center p-0 m-0">
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/style/picasso copy.jpg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Original image</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/sn1.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>input_noise</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/sn1_conv_.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>conv_5</figcaption>
+                                            </div>
+                                        </div>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/style/the_scream copy.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Original image</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/sn2.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>input_noise</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/sn2_conv_.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>conv_5</figcaption>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <h2>Style transfer</h2>
+                                    <br><br>
+                                    <p>
+                                        Finally, it is time to put pieces together! We will use conv_5 as content
+                                        feature
+                                        and
+                                        conv_1-conv_7 as style feature. The style weight is set to 1000000 and the
+                                        content
+                                        weight is
+                                        set to 1. We use L-BFGS optimizer to and optimized input image for 300 steps.
+                                        <br><br>
+                                        The following images show the style transfer of two different styles on two
+                                        different
+                                        images.
+
+                                        <br><br>
+                                    </p>
+
+                                    <div class="container col-12 align-self-center p-0 m-0">
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-4 p-0 m-0">
+
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/style/cr1.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Style 1</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/style/the_scream copy.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Style 2</figcaption>
+                                            </div>
+                                        </div>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/content/dancing.jpg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Original image</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/ci_k.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption></figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/ci_s.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption></figcaption>
+                                            </div>
+                                        </div>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/content/cr1.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Original image</figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/ci_k2.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption></figcaption>
+                                            </div>
+                                            <div class="col-4 p-0 m-0">
+                                                <img src="images/neuralStyle/output/ci_s2.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption></figcaption>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p>
+                                        <br><br>
+                                        In the following images the influence between the noise and content image
+                                        initialization can be
+                                        seen. In terms of time both take the same time, however, if we tried different
+                                        number of epochs
+                                        to change the results, the times may change. On the other hand, we can see that
+                                        the
+                                        content
+                                        initialization mantains the texture better, actually, in the sky, we can see
+                                        similar
+                                        strokes as
+                                        the ones in Van Gogh's masterpiece. Furthermore, the overall structure of the
+                                        image
+                                        is better,
+                                        the elements can be better distinguised.
+                                        <br><br><br>
+                                    </p>
+
+                                    <div class="container col-12 align-self-center p-0 m-0">
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-1 p-0 m-0"></div>
+                                            <div class="col-5 p-0 m-0">
+                                                <img src="images/neuralStyle/style/starry_night copy.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Style image</figcaption>
+                                            </div>
+                                            <div class="col-5 p-0 m-0">
+                                                <img src="images/neuralStyle/content/tubingen.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Content Image</figcaption>
+                                            </div>
+                                        </div>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-1 p-0 m-0"></div>
+                                            <div class="col-5 p-0 m-0">
+                                                <img src="images/neuralStyle/output/noise.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Noise image initialization<br>(CPU times: user 25.3 s)
+                                                </figcaption>
+                                            </div>
+                                            <div class="col-5 p-0 m-0">
+                                                <img src="images/neuralStyle/output/content.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Content image initialization <br>(Wall time: 25.9 s)
+                                                </figcaption>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <p>
+                                        <br><br>
+                                        Now let's try this style transfer on... Kiki! She is always around while I do
+                                        the
+                                        homework, so
+                                        she will enjoy seeing herself in different styles!
+                                        <br><br><br>
+                                    </p>
+                                    <div class="container col-12 align-self-center p-0 m-0 ">
+                                        <div class="row  align-self-center p-0 m-0  ">
+                                            <div class="col-md-4 col-12 p-0 m-0">
+                                                <img src="images/neuralStyle/output/kiki2_k.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Kiki Kahlo</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/style/frida_kahlo.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption> Style (Kahlo)</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/content/kiki1.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Kiki</figcaption>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-md-4 col-12 p-0 m-0">
+
+                                                <img src="images/neuralStyle/output/kiki_g.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>La Maja Kiki</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/style/la_maja.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption> Style (La Maja Vestida de Goya)</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/content/kiki3.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Kiki</figcaption>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row  align-self-center p-0 m-0 ">
+                                            <div class="col-md-4 col-12 m-0 p-0">
+                                                <img src="images/neuralStyle/output/kikiM.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Kiki Miro</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/style/miro-3.png"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption> Style (Miro)</figcaption>
+                                            </div>
+                                            <div class="col-md-4 col-6 p-0 m-0">
+                                                <img src="images/neuralStyle/content/kiki2.jpeg"
+                                                    class=' d-block float-top mx-auto d-block img-fluid col-11'>
+                                                <figcaption>Kiki</figcaption>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- proj 4-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -183,7 +689,8 @@
 
                                         <img src="images/cats/gif/_grumpifyBprocessed_deluxe.gif"
                                             class='  d-block float-center mx-auto d-block img-fluid col-sm-5  col-8'>
-                                        <figcaption class="text-center">Grumpy cat DCGAN training outputs</figcaption>
+                                        <figcaption class="text-center">Grumpy cat DCGAN training outputs
+                                        </figcaption>
 
 
 
@@ -192,14 +699,17 @@
                                 <br>
 
                                 <p>
-                                    In this project, we will explore coding and training of GANs (Generative Adversarial
+                                    In this project, we will explore coding and training of GANs (Generative
+                                    Adversarial
                                     Networks). This
                                     assignment is divided into two
                                     parts: in the first part, we will implement a specific type of GAN designed to
                                     process images,
-                                    called a Deep Convolutional GAN (DCGAN). We’ll train the DCGAN to generate cats from
+                                    called a Deep Convolutional GAN (DCGAN). We’ll train the DCGAN to generate cats
+                                    from
                                     samples of
-                                    random noise. In the second part, we will implement a more complex GAN architecture
+                                    random noise. In the second part, we will implement a more complex GAN
+                                    architecture
                                     called CycleGAN,
                                     which was designed for the task of image-to-image translation.
                                     We’ll train the CycleGAN to convert between different types of two kinds of cats
@@ -215,13 +725,17 @@
                                 <p>
                                     or the first part of this assignment, we will implement a Deep Convolutional GAN
                                     (DCGAN) as introduced
-                                    by <a href="https://arxiv.org/pdf/1511.06434.pdf%C3" target="'_blanck">Radford et
+                                    by <a href="https://arxiv.org/pdf/1511.06434.pdf%C3" target="'_blanck">Radford
+                                        et
                                         al</a>. A DCGAN is
-                                    simply a GAN that uses a convolutional neural network as the discriminator, and a
+                                    simply a GAN that uses a convolutional neural network as the discriminator, and
+                                    a
                                     network composed of
-                                    transposed convolutions as the generator. To implement the DCGAN, we need to specify
+                                    transposed convolutions as the generator. To implement the DCGAN, we need to
+                                    specify
                                     three things: 1)
-                                    the generator, 2) the discriminator, and 3) the training procedure. We will develop
+                                    the generator, 2) the discriminator, and 3) the training procedure. We will
+                                    develop
                                     each of these three
                                     components in the following subsections.
 
@@ -244,9 +758,11 @@
 
 
                                 <p>
-                                    In each of the convolutional layers shown above, we downsample the spatial dimension
+                                    In each of the convolutional layers shown above, we downsample the spatial
+                                    dimension
                                     of the input
-                                    volume by a factor of 2. Given the input-output relation equation and that we use
+                                    volume by a factor of 2. Given the input-output relation equation and that we
+                                    use
                                     kernel size K = 4 and
                                     stride S =
                                     2, the padding for each convolution is:
@@ -264,9 +780,11 @@
                                 <p>
                                     Bellow a summary of the discriminator implemented can be seen. The sizes of the
                                     outputs of
-                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each layer can be seen as well as the number of parameters that were trained.
+                                    After
                                     each
-                                    convolution operation, ReLU activation has been used a except from the last layer,
+                                    convolution operation, ReLU activation has been used a except from the last
+                                    layer,
                                     the 5th
                                     Conv2d layer.
                                 </p>
@@ -295,13 +813,15 @@
 
                                 <p>
                                     The generator of the DCGAN consists of a sequence
-                                    of transpose convolutional layers(we will implement upsampling and posterior conv2d)
+                                    of transpose convolutional layers(we will implement upsampling and posterior
+                                    conv2d)
                                     that progressively
                                     upsample the input noise sample to generate a fake image.
                                     <br><br>
                                     Before each of the convolutional layers shown above, we upsample the spatial
                                     dimension of the input
-                                    volume by a factor of 2. Given the input-output relation equation and that we use
+                                    volume by a factor of 2. Given the input-output relation equation and that we
+                                    use
                                     kernel size K = 3 and
                                     stride S =
                                     1, the padding for each convolution is:
@@ -315,11 +835,14 @@
                                 <br>
 
                                 <p>
-                                    Bellow a summary of the generator implemented can be seen. The sizes of the outputs
+                                    Bellow a summary of the generator implemented can be seen. The sizes of the
+                                    outputs
                                     of
-                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each layer can be seen as well as the number of parameters that were trained.
+                                    After
                                     each
-                                    convolution operation, ReLU activation has been used a except from the last layer
+                                    convolution operation, ReLU activation has been used a except from the last
+                                    layer
                                     that used a Tanh
                                     activation.
                                 </p>
@@ -338,9 +861,11 @@
 
 
                                 <p>
-                                    Next, we implemented the training loop for the DCGAN. A DCGAN is simply a GAN with a
+                                    Next, we implemented the training loop for the DCGAN. A DCGAN is simply a GAN
+                                    with a
                                     specific type of
-                                    generator and discriminator; thus, we train it in exactly the same way as a standard
+                                    generator and discriminator; thus, we train it in exactly the same way as a
+                                    standard
                                     GAN. The
                                     pseudo-code for the training procedure is shown below.
                                 </p>
@@ -356,15 +881,19 @@
                                 <br>
 
                                 <p>
-                                    To train the DCGAN we have used basic (normalization) and deluxe data augmentation
+                                    To train the DCGAN we have used basic (normalization) and deluxe data
+                                    augmentation
                                     techniques (random
                                     crop and
                                     horizontal flips).In the following plots, we
-                                    can see the influence of the data augmentation techniques. One of the main problems
+                                    can see the influence of the data augmentation techniques. One of the main
+                                    problems
                                     when training GANs
-                                    is overfitting, this occurs when the data used for trainning is so small that the
+                                    is overfitting, this occurs when the data used for trainning is so small that
+                                    the
                                     model memorizes it,
-                                    which deteriorates the performance. Therefore, using data augmentation techniques
+                                    which deteriorates the performance. Therefore, using data augmentation
+                                    techniques
                                     increases the number
                                     of training examples improving the the training.
                                 </p>
@@ -389,11 +918,13 @@
                                 </div>
                                 <br>
                                 <p>
-                                    To further improve the data efficiency of GANs, we have also applied differentiable
+                                    To further improve the data efficiency of GANs, we have also applied
+                                    differentiable
                                     augmentations
                                     discussed in this <a href="https://arxiv.org/pdf/2006.10738.pdf"
                                         target="'_blanck">paper</a>. In the
-                                    plots bellow we can see the influence of this tecnique. The discriminator loss is
+                                    plots bellow we can see the influence of this tecnique. The discriminator loss
+                                    is
                                     higher this time, as
                                     it is more difficult to differentiate real images from the fake ones, which also
                                     makes the
@@ -420,7 +951,8 @@
                                 </div>
                                 <br>
                                 <p>
-                                    The outputs of training the models for 200 iterations and 6500 iterations are the
+                                    The outputs of training the models for 200 iterations and 6500 iterations are
+                                    the
                                     following:
                                     <br> <br> - For basic data augmentation:
                                 <div class="container col-12 align-self-center p-0 m-0">
@@ -458,7 +990,8 @@
                                     </div>
                                 </div>
                                 <br>
-                                In the previous images we can see the influence of this data augmentation technique in
+                                In the previous images we can see the influence of this data augmentation technique
+                                in
                                 the quality of the
                                 output images, even when the number of iterations for training is the same.
                                 <br> <br> - For deluxe data augmentation with differentiable augmentation:
@@ -496,11 +1029,13 @@
                                 <p>
                                     In the second part of this assigment, we are going to implement a CycleGAN as
                                     introduced
-                                    by <a href="https://arxiv.org/pdf/1703.10593.pdf" target="'_blanck">Zhu et al</a>.
+                                    by <a href="https://arxiv.org/pdf/1703.10593.pdf" target="'_blanck">Zhu et
+                                        al</a>.
                                     CycleGANs are
                                     particularly interesting because they allow to use un-paired training data. This
                                     means that in order
-                                    to train a model to translate images from domain X to domain Y , we do not have to
+                                    to train a model to translate images from domain X to domain Y , we do not have
+                                    to
                                     have exact
                                     correspondences
                                     between individual images in those domains as it is the case for image-to-image
@@ -518,30 +1053,38 @@
                                 <br>
                                 <p>
 
-                                    The generator in the CycleGAN has layers that implement three stages of computation:
+                                    The generator in the CycleGAN has layers that implement three stages of
+                                    computation:
                                     <br><br>
                                     1) the first stage
                                     encodes the input via a series of convolutional layers that extract the image
                                     features;
-                                    <br>2) the second stage then transforms the features by passing them through one or
+                                    <br>2) the second stage then transforms the features by passing them through one
+                                    or
                                     more residual
                                     blocks;
                                     <br>3) the third
-                                    stage decodes the transformed features using a series of transposed convolutional
+                                    stage decodes the transformed features using a series of transposed
+                                    convolutional
                                     layers, to build an
                                     output image of the same size as the input.
                                     <br><br>The residual block used in the transformation stage consists
-                                    of a convolutional layer, where the input is added to the output of the convolution.
+                                    of a convolutional layer, where the input is added to the output of the
+                                    convolution.
                                     This is done so
-                                    that the characteristics of the output image (e.g., the shapes of objects) do not
+                                    that the characteristics of the output image (e.g., the shapes of objects) do
+                                    not
                                     differ too much from
                                     the input.
                                     <br><br>
-                                    Bellow a summary of the generator implemented can be seen. The sizes of the outputs
+                                    Bellow a summary of the generator implemented can be seen. The sizes of the
+                                    outputs
                                     of
-                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each layer can be seen as well as the number of parameters that were trained.
+                                    After
                                     each convolution
-                                    operation, ReLU activation has been used a except from the last layer that used a
+                                    operation, ReLU activation has been used a except from the last layer that used
+                                    a
                                     Tanh activation.
 
                                 </p>
@@ -558,15 +1101,18 @@
                                     image to be real or
                                     fake, it classifies the patches of the images, allowing CycleGAN to model local
                                     structures better. To
-                                    achieve this effect, we reduce the spatial outputs to a dimension of 4x4 instead of
+                                    achieve this effect, we reduce the spatial outputs to a dimension of 4x4 instead
+                                    of
                                     a
                                     scalar, 1x1, as before.
                                     <br><br>
                                     Bellow a summary of the discriminator implemented can be seen. The sizes of the
                                     outputs of
-                                    each layer can be seen as well as the number of parameters that were trained. After
+                                    each layer can be seen as well as the number of parameters that were trained.
+                                    After
                                     each
-                                    convolution operation, ReLU activation has been used a except from the last layer.
+                                    convolution operation, ReLU activation has been used a except from the last
+                                    layer.
 
                                 </p>
 
@@ -599,17 +1145,23 @@
                                 <h4>Cycle Consistency</h4>
                                 <br>
                                 <p>
-                                    The most interesting idea behind CycleGANs (and the one from which they get their
+                                    The most interesting idea behind CycleGANs (and the one from which they get
+                                    their
                                     name) is the idea of
-                                    introducing a cycle consistency loss to constrain the model. The idea is that when
+                                    introducing a cycle consistency loss to constrain the model. The idea is that
+                                    when
                                     we translate an image
-                                    from domain X to domain Y, and then translate the generated image back to domain X,
+                                    from domain X to domain Y, and then translate the generated image back to domain
+                                    X,
                                     the result should
-                                    look like the original image that we started with. The cycle consistency component
+                                    look like the original image that we started with. The cycle consistency
+                                    component
                                     of the loss is the
-                                    mean squared error between the input images and their reconstructions obtained by
+                                    mean squared error between the input images and their reconstructions obtained
+                                    by
                                     passing through both
-                                    generators in sequence (i.e., from domain X to Y via the X->Y generator, and then
+                                    generators in sequence (i.e., from domain X to Y via the X->Y generator, and
+                                    then
                                     from domain Y back to
                                     X
                                     via the Y->X generator). The cycle consistency loss for the Y->X->Y cycle is
@@ -624,9 +1176,11 @@
                                 <h4>Results</h4>
                                 <br>
                                 <p>
-                                    In the following image we can see the influence of the cycle consistency loss in the
+                                    In the following image we can see the influence of the cycle consistency loss in
+                                    the
                                     output results. In
-                                    the first two images the results of training from domain X to Y and viceversa with
+                                    the first two images the results of training from domain X to Y and viceversa
+                                    with
                                     and withouth cycle
                                     consistency are shown:
                                     <br><br>
@@ -638,7 +1192,8 @@
                                 </figcaption>
                                 <img src="images/cats/sample-001000-X-Y_cycle.png"
                                     class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
-                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
                                 <br>
                                 Y -> X: from Grumpy to Russian Blue
                                 <br><br>
@@ -648,10 +1203,12 @@
                                 </figcaption>
                                 <img src="images/cats/sample-001000-Y-X_cycle.png"
                                     class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
-                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
                                 <br><br>
 
-                                In the previous image we can seee that introducing the cycle consistency loss improves
+                                In the previous image we can seee that introducing the cycle consistency loss
+                                improves
                                 the results, and
                                 reduces the visual artifacts. Therefore, the second training, with cycle consistency
                                 loss, has been
@@ -673,7 +1230,8 @@
                                 PatchDiscriminator, with the
                                 results using the previous DCDiscriminator. We can see that the PatchDiscriminator,
                                 another of thee
-                                differences between DCGAN and CycleGAN improves the results for domain transformation.
+                                differences between DCGAN and CycleGAN improves the results for domain
+                                transformation.
                                 <br><br>
 
                                 <img src="images/cats/sample-010000-X-Y_dc.png"
@@ -687,7 +1245,8 @@
                                 </figcaption>
 
                                 <br><br>
-                                The same experiments were carried out with the apple/orange dataset, observing the same
+                                The same experiments were carried out with the apple/orange dataset, observing the
+                                same
                                 results, the cycle
                                 consistency loss as well as using PatchDiscriminator improved the results.
                                 <br><br>
@@ -699,7 +1258,8 @@
                                 </figcaption>
                                 <img src="images/cats/sample-001000-X-Y_patch_a.png"
                                     class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
-                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
                                 <br>
                                 Y -> X: from oranges to apples
                                 <br><br>
@@ -709,7 +1269,8 @@
                                 </figcaption>
                                 <img src="images/cats/sample-001000-Y-X_patch_a.png"
                                     class='  d-block float-center mx-auto d-block img-fluid col-sm-10 col-11'>
-                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator</figcaption>
+                                <figcaption>With cycle consistency,1000 iterations and PatchDiscriminator
+                                </figcaption>
                                 <br><br>
                                 Results after 10000 iterations using PatchDiscriminator:
                                 <br><br>
@@ -737,15 +1298,20 @@
                                 <figcaption>With cycle consistency Y -> X,10000 iterations and DCDiscriminator
                                 </figcaption>
                                 <br><br>
-                                I think it is very interesting that in the orange dataset, there are a lot of images of
+                                I think it is very interesting that in the orange dataset, there are a lot of images
+                                of
                                 the open fruit,
-                                however, in the apple dataset they are very little. Furthermore, oranges are orange in
+                                however, in the apple dataset they are very little. Furthermore, oranges are orange
+                                in
                                 the inside, so same
-                                color inside as outside, but apples, are white in the inside. The problem has trouble
+                                color inside as outside, but apples, are white in the inside. The problem has
+                                trouble
                                 learning this an in
-                                the results we can see apples that are red on the inside. Another thing that catched my
+                                the results we can see apples that are red on the inside. Another thing that catched
+                                my
                                 atttention, was that
-                                the big mayority of the apples are red, so when the model sees a green apple, it doesn't
+                                the big mayority of the apples are red, so when the model sees a green apple, it
+                                doesn't
                                 convert it into an
                                 orange.
                                 </p>
@@ -757,7 +1323,8 @@
                                 <p>
                                     Applies <a
                                         href="https://pytorch.org/docs/stable/generated/torch.nn.utils.spectral_norm.html"
-                                        target="'_blanck">spectral normalization</a> to a parameter in the given module.
+                                        target="'_blanck">spectral normalization</a> to a parameter in the given
+                                    module.
 
                                     <br><br>
                                     <img src="images/cats/formula3.png"
@@ -780,7 +1347,8 @@
 
                                             <img src="images/cats/plot-006500_spectral.png"
                                                 class=' d-block float-top mx-auto d-block img-fluid col-11'>
-                                            <figcaption>Losses using basic data augmentation and spectral normalization
+                                            <figcaption>Losses using basic data augmentation and spectral
+                                                normalization
                                             </figcaption>
                                         </div>
                                     </div>
@@ -1635,7 +2203,8 @@
 
                                 <br><br>
                                 <p>
-                                    Sergey Mikhaylovich Prokudin-Gorsky was a chemist and photographer of the Russian
+                                    Sergey Mikhaylovich Prokudin-Gorsky was a chemist and photographer of the
+                                    Russian
                                     Empire. He is best
                                     known
                                     for his pioneering work in color photography and his effort to document early
@@ -1645,7 +2214,8 @@
                                     divided into three channels of information by capturing it in the form of three
                                     black-and-white
                                     photographs,
-                                    one taken through a red filter, one through a green filter, and one through a blue
+                                    one taken through a red filter, one through a green filter, and one through a
+                                    blue
                                     filter.
                                 </p>
 
@@ -1656,9 +2226,11 @@
                                 <br>
 
                                 <p>
-                                    Those original negative images (available in the Library of Congress) are going to
+                                    Those original negative images (available in the Library of Congress) are going
+                                    to
                                     be used in this
-                                    assignment to compose the color photographs. Due to the way the images were captured
+                                    assignment to compose the color photographs. Due to the way the images were
+                                    captured
                                     using three
                                     different
                                     cameras, as it can be seen in the image above, the negatives are not aligned.
@@ -1677,7 +2249,8 @@
                                 </div>
 
                                 <p>
-                                    To generate the final image, we need to divide the initial image into red, green,
+                                    To generate the final image, we need to divide the initial image into red,
+                                    green,
                                     and blue channels.
                                     Actually, the original glass negatives are ordered in blue, green, and red order
                                     from top to bottom
@@ -1685,7 +2258,8 @@
                                     we can see in the gif image, we have to find the correct alignment of the three
                                     taking one of them as
                                     the
-                                    base, in our case the blue channel. Once the alignment is found, we can combine the
+                                    base, in our case the blue channel. Once the alignment is found, we can combine
+                                    the
                                     three channels.
                                 </p>
                                 <br><br>
@@ -1702,14 +2276,16 @@
                                     <img src="https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Clarge%20SSD%3D%5Csum_%7Bw%2Ch%7D%20%5Cleft%20%28%20F_%7Bw%2Ch%7D%20-%20G_%7Bw%2Ch%7D%20%5Cright%20%29%5E2"
                                         class='float-center mx-auto d-block img-fluid col-lg-3 col-sm-5 col-7'>
                                     <br>
-                                    where <i>F</i> and <i>G</i> are both of the arrays we are comparing and <i>h,w</i>
+                                    where <i>F</i> and <i>G</i> are both of the arrays we are comparing and
+                                    <i>h,w</i>
                                     the corresponding
                                     pixels at a given height and width. The best alignment will be the one with the
                                     lower NCC value, this is
                                     the argmax of the previous equation.
                                     <br><br>
 
-                                    The Normalized Cross-Correlation is calculated based on the following equation where
+                                    The Normalized Cross-Correlation is calculated based on the following equation
+                                    where
                                     as the name
                                     suggests,both of the arrays are first normalized
                                     <br><br><br>
@@ -1723,25 +2299,32 @@
                                 <h3>Image Pyramid</h3>
                                 <br>
                                 <p>
-                                    For higher dimension images, the previous brute force approach is not feasible, as
+                                    For higher dimension images, the previous brute force approach is not feasible,
+                                    as
                                     the number of
                                     possible alignment combinations increases, which is translated in a higher
                                     computation time. For
-                                    those images, the pyramid algorithm is used. This algorithm consists in creating a
+                                    those images, the pyramid algorithm is used. This algorithm consists in creating
+                                    a
                                     multi-scale
-                                    representation of the image. On each level the image is reduced by half, to do so,
+                                    representation of the image. On each level the image is reduced by half, to do
+                                    so,
                                     previous two the
-                                    downsampling, a Gaussian filter is applied to prevent wrong aliasing in the process.
+                                    downsampling, a Gaussian filter is applied to prevent wrong aliasing in the
+                                    process.
                                     In my case, I
                                     have downsampled the images until reached a dimension similar to the cathedral
                                     image, where we have
                                     seen that the initial search on a 15x15 grid is feasible.
 
-                                    The search for the correct alignment is started with this smaller dimension of the
+                                    The search for the correct alignment is started with this smaller dimension of
+                                    the
                                     image and then is
-                                    translated to higher dimensions. Every time we look for the correct alignment on a
+                                    translated to higher dimensions. Every time we look for the correct alignment on
+                                    a
                                     higher dimension
-                                    image, the previous displacement is taken into account and a new 3x3 displacement
+                                    image, the previous displacement is taken into account and a new 3x3
+                                    displacement
                                     grid is
                                     considered.
                                 </p>
@@ -1754,18 +2337,22 @@
 
                                     Due to the alignment process, we can see that the borders of the resulting
                                     photographs have strange
-                                    colors due to the three channels displacement and the black and white borders of the
+                                    colors due to the three channels displacement and the black and white borders of
+                                    the
                                     original glass
-                                    negatives. To find those borders a Sobel filter has been applied both vertically and
+                                    negatives. To find those borders a Sobel filter has been applied both vertically
+                                    and
                                     horizontally.
-                                    The absolute values of the outputs have been considered and then combined vertically
+                                    The absolute values of the outputs have been considered and then combined
+                                    vertically
                                     and
                                     horizontally to find the respective borders.
                                 </p>
                                 <div class="container col-lg-10 col-12 ">
                                     <img src="images/colorizing/emir.jpg"
                                         class=' d-block float-top mx-auto d-block img-fluid col-12'>
-                                    <figcaption>Displacement vectors. G:(48, 24) R:(102, 42)<br> Crops: (126, 118, 222,
+                                    <figcaption>Displacement vectors. G:(48, 24) R:(102, 42)<br> Crops: (126, 118,
+                                        222,
                                         317)</figcaption>
 
                                 </div>
@@ -1774,15 +2361,19 @@
                                 <h3>Gradient for the alignment</h3>
                                 <br>
                                 <p>
-                                    Some of the images, such as the emir or the village images, may be more difficult to
+                                    Some of the images, such as the emir or the village images, may be more
+                                    difficult to
                                     align. This is
                                     because our alignment metric is based on the pixel values of the three images,
                                     however, this may not
-                                    be a good approach as the pixel values may vary a lot in the different channels, as
+                                    be a good approach as the pixel values may vary a lot in the different channels,
+                                    as
                                     it is the case
-                                    of the emir’s clothing, that is blue, so it will have higher pixel values in that
+                                    of the emir’s clothing, that is blue, so it will have higher pixel values in
+                                    that
                                     channel but not in
-                                    the others. In that case, we can use the same search metric but instead of using the
+                                    the others. In that case, we can use the same search metric but instead of using
+                                    the
                                     pixel values,
                                     we could use other image features, as it can be the gradient to find the best
                                     alignment.
@@ -1809,7 +2400,8 @@
                                 <h3>Automatic contrast</h3>
                                 <br>
                                 <p>
-                                    Sigmoid function has been used to apply automatic contrast to the image and improve
+                                    Sigmoid function has been used to apply automatic contrast to the image and
+                                    improve
                                     the perception
                                     of it.
                                 </p>
@@ -1825,7 +2417,8 @@
                                         <div class="col-md-5 align-self-center">
                                             <img src="images/colorizing/three_generations_level0_c_edited.jpeg"
                                                 class='float-center mx-auto d-block img-fluid col-12'>
-                                            <figcaption>Displacement vectors G:(54, 12) R:(110, 10)<br>Sigmoid: alpha=6
+                                            <figcaption>Displacement vectors G:(54, 12) R:(110, 10)<br>Sigmoid:
+                                                alpha=6
                                                 betha=2.5</figcaption>
                                         </div>
                                     </div>
