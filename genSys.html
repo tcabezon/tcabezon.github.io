@@ -43,9 +43,11 @@
                     <img src='images/genSys/diagram.png' class=' mx-auto col-12 m-0 p-0'>
                 </div>
             </div>
-            
 
-            <br><br>
+
+
+
+
             <h3>Project description</h3>
             <br>
             <p>
@@ -155,6 +157,20 @@
             <br>
             <p>The code to run this program can be found in the following <a class=underline
                     href="https://github.com/tcabezon/15112-hnx.py" target="_blank">github repository</a>.</p>
+
+
+            <div id="my_iframe_div" style="border: 0.5px solid rgb(218, 218, 218);"></div>
+            <script>
+                var my_div = document.getElementById('my_iframe_div')
+                var my_width = my_div.clientWidth
+                console.log('->width->', my_width)
+                var iframe = document.createElement('iframe');
+                iframe.width = my_width
+                iframe.height = my_width
+                iframe.src = "https://tcabezon.github.io/3Dexploration/"
+                iframe.frameBorder = "1";
+                my_div.appendChild(iframe);
+            </script>
 
             <br><br><br><br>
             <p class=footer>©Tomas Cabezon Pedroso, 2021</p>
