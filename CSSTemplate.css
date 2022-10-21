@@ -151,7 +151,7 @@
 		
 		
 
-		a:hover,li a:hover {
+		a:hover,li a:hover , .warning{
 				background-color: LavenderBlush;
 				color: black;
 				
