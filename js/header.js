@@ -17,8 +17,9 @@ document.write(`<!-- HEADER -->
                         <li><a href='projects.html'>Projects</a>
                             <ul class='sub-menu'>
                                 <!--<li class='first' ><a href='______.html'>______</a></li>--!>
-                                <li class='first' ><a href='genSys.html'>genSys</a></li>
-                                <li><a href='interClothesGAN.html'>InterClothesGAN</a></li>
+                                <li class='first'><a href='interClothesGAN.html'>InterClothesGAN</a></li>
+                                <li><a href='jewelry.html'>Jewelry crafting</a></li>
+                                <li><a href='genSys.html'>Latent Space exploration</a></li>
                                 <li ><a href='hnx.html'>hnx.py</a></li>
                                 <li><a href='cyclegans.html'>CycleGANs for design</a></li>
                                 <li><a href='xyu.html'>XYU ring</a></li>
