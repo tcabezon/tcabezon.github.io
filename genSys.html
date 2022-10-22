@@ -33,23 +33,35 @@
 
             <br>
             <p>
-                WHEN? Fall 2021 
-                <br>WHO? Tomás Cabezón 
+                WHEN? Fall 2021
+                <br>WHO? Tomás Cabezón
                 <br>WHY? 62-706: Generative systems in design
-                Science<br>WHERE? CMU</p>
+                Science<br>WHERE? CMU
+            </p>
             <br>
 
 
-            <p> <span class="warning">-> This page is not yet finished. Work in progress <-</span></p>
+            <p> <span class="warning">-> This page is not yet finished. Work in progress <-< /span>
+            </p>
             <br>
-            <div class='container m-0 p-0 col-md-6'>
+            <div class='container m-0 p-0 col-md-8 col-lg-6'>
                 <div class='row m-0 p-0'>
-                    <img src='images/genSys/diagram.png' class=' mx-auto col-12 m-0 p-0'>
+                    <img src='images/genSys/graphic.jpg ' class=' mx-auto col-12 m-0 p-0'>
                 </div>
             </div>
+            <br><br>
 
 
-    
+            <p>
+                This project is my final assignment for the course generative systems. The idea behind this project is
+                to try to better understand how Machine Learning (ML) models infer the statistical distributions of the
+                data during training. More concretely, study the feature extraction that the ML model does from the
+                dataset. In this case, a parametric design algorithm is used to generate a dataset and then this
+                parametric space is compared with the latent space learned by the model. The final output of the project
+                is a 2D arrangement of the elements on the dataset based on their features, this is, a 2D map of the
+                elements of the dataset where similar data is more closely positioned, something interesting for
+                recommendation systems, for example.
+            </p>
             <br><br>
             <h3>Project description</h3>
             <br>
@@ -73,13 +85,170 @@
                 <br><br>
             </p>
 
-            <div class=' container m-0 p-0'>
+
+
+            <div class='container m-0 p-0 col-md-8'>
                 <div class='row m-0 p-0'>
-                    <img src='images/genSys/data_generation.gif' class=' mx-auto col-sm-8 m-0 p-0'>
+                    <img src='images/genSys/diagram.png' class=' mx-auto col-12 m-0 p-0'>
                 </div>
             </div>
 
-            
+            <br><br>
+            <h3>Dataset Generation</h3>
+            <br>
+            <p>To conduct this experiment a simple parametric model was designed, a parametric algorithm for pot
+                generation. Similar to the handcraft of pottery wheel throwing, a simple bezier curve with three control
+                points was turned around an axis to generate each 3D digital pots. This parametric algorithm was used to
+                randomly generate the dataset that was later used to train the VAE, a total of 15.000 different 3D pots
+                were generated.
+            </p>
+
+
+            <div class='container m-0 p-0 col-md-6'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/data_generation.gif' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <p>
+                Generated .stl files and the used parameters and the corresponding voxels.
+            </p>
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/data_stl_params.jpeg' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/data_voxel.jpeg' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <p>
+                The dataset is divided in two groups, for training and testing and posterior analysis.
+            </p>
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/data_partition.png' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <br><br>
+            <h3>Training</h3>
+            <br>
+            <p>
+                The following image shows the internal structure of the used VAE (Encoder and Decoder).
+
+            </p>
+
+
+            <div class='container m-0 p-0 col-md-10'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/model.png' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+            <br><br>
+            <p>
+                The model was trained for 240 epochs.
+                For training, apart from the KLD loss, the MSE Loss was used as the reconstruction loss.
+
+            </p>
+            <br>
+            <div class='container m-0 p-0 col-md-9'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/losses.png' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <br><br>
+            <h3>Training results</h3>
+            <br>
+            <p>
+                On the top, the ground truth (input of the VAE) and on the bottom the reconstructed element.
+
+            </p>
+
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/trainingResults.gif' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <br><br>
+
+            <p>
+                Once the VAE is trained, the encoder is used to embed each of the pots into the latent space and analyze
+                the captured features by the DL model. For a better visualization of the extracted features, a
+                t-Distributed Stochasitc Neighbor Embedding (t-SNE) is used, a popular dimensionality-reduction
+                algorithm for visualizing high-dimensional data sets, creating a plot of the objects into a 2D space.
+
+            </p>
+            <br>
+
+            <div class='container m-0 p-0 col-md-10'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/diagram2.png' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <br><br>
+
+            <p>
+                At this point it is possible to evaluate that the DL model has not only learned the parameters, but the
+                relationship between these parameters and their influence on the output morphological shape.
+
+            </p>
+            <br>
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/result.jpeg' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+            <br><br> <br><br>
+            <p>
+                Finally, the data points were later clustered using a Density-Based Spatial Clustering of Applications
+                with Noise (DBSCAN) finding core samples of high density and expanding clusters with them. This shows
+                that the DL model was able to extract the features of each of the pots and understand the relationship.
+                This latent space clustering is compared with the parametric space showing that the first better
+                captures the final shapes of the objects.
+            </p>
+            <br>
+
+            <div class='container m-0 p-0 col-md-12'>
+                <div class='row m-0 p-0'>
+                    <img src='images/genSys/graphic.jpg' class=' mx-auto col-12 m-0 p-0'>
+                </div>
+            </div>
+
+
+            <!-- embeded website -->
+            <br><br> <br><br>
+            <p>
+                Bellow the final website of this project can be seen (note that this won't show properly on small
+                screens). The final website can also be accessed <a class=underline target="_blank"
+                    href="https://tcabezon.github.io/3Dexploration/"> here </a>
+            </p>
+
+            <div id="my_iframe_div" style="border: 0.5px solid rgb(218, 218, 218);" class="col-sm-0"></div>
+
+            <script>
+                var my_div = document.getElementById('my_iframe_div')
+                var my_width = my_div.clientWidth
+                console.log('->width->', my_width)
+                var iframe = document.createElement('iframe');
+                iframe.width = my_width
+                iframe.height = my_width * 1.10
+                iframe.src = "https://tcabezon.github.io/3Dexploration/"
+                iframe.frameBorder = "1";
+                my_div.appendChild(iframe);
+            </script>
 
             <br><br><br><br>
             <p class=footer>©Tomas Cabezon Pedroso, 2021</p>
