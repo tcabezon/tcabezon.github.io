@@ -1,5 +1,5 @@
 
-/*inpired by
+/* code from by
 https://tonybox.net/posts/simple-stl-viewer/
 parameter to change: camera.position.z = largestDimension * 3;
 scene.background = new THREE.Color( 0xf4f4f4  );
