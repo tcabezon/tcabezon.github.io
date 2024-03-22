@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+  <!-- mediapipe HAND DETECTION -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!-- video container -->
+  <div class="container">
+    <video class="input_video" class="removed"></video>
+    <canvas style="position:fixed" class="output_canvas"></canvas>
+    <div class="landmark-grid-container"></div>
+    <p  style="width:90%;position:fixed;text-align:right;" id="rotate_info"></p>
+  </div>
+
+  <!-- dot to show hand -->
+  <div id="dot"></div>
+
+  
+
+  <script>
+    var rotated_X=0
+    var rotated_Y=0
+    document.getElementById('rotate_info').innerHTML='rotated_x '+Math.floor(rotated_X)+'<br>rotated_y '+rotated_Y
+  </script>
+
+  <!-- script of the page -->
+  <script type="module" src="script.js"></script>
+
+  <!-- p5.js sketch -->
+  <script src="sketch.js"></script>
+  
+</body>
+
+</html>
